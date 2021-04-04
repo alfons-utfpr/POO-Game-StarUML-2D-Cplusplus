@@ -4,7 +4,7 @@
 
 namespace Jogo {
     namespace Tile {
-        Tile::Tile(const Ids::Ids ID /*= Ids::semID*/, const char* caminhoArquivo /*= nullptr*/, Vetor2F Tamanho /*= {32.0f, 32.0f}*/) :
+        Tile::Tile(const Ids::Ids ID /*= Ids::semID*/, const char* caminhoArquivo /*= nullptr*/, Vetor::Vetor2F Tamanho /*= {32.0f, 32.0f}*/) :
             id{ ID }, caminho{ caminhoArquivo }, tamanho{ Tamanho } {
         }
 
@@ -16,7 +16,7 @@ namespace Jogo {
             gg.carregarTextura(caminho);
         }
 
-        void Tile::desenhar(Gerenciador::GerenciadorGrafico& gg, const Vetor2F posicao) const {
+        void Tile::desenhar(Gerenciador::GerenciadorGrafico& gg, const Vetor::Vetor2F posicao) const {
             // std::cout << '\t' << '\t' << caminho << std::endl;
             gg.desenhar(caminho, posicao);
         }
@@ -25,7 +25,7 @@ namespace Jogo {
             return id;
         }
 
-        void Tile::colidir(Ids::Ids idOutro, Vetor2F posicaoOutro, Vetor2U posicao) {
+        void Tile::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2U posicao) {
 
         }
     }

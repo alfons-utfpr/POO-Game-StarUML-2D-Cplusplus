@@ -1,5 +1,7 @@
 #include "SegundaFase.h"
-
+#include "Chefao.h"
+#include "SegundoVilao.h"
+#include "SegundoHeroi.h"
 #include "Tile.h"
 #include "Vilao.h"
 
@@ -7,7 +9,7 @@
 
 namespace Jogo {
     namespace Fase {
-        SegundaFase::SegundaFase(Gerenciador::GerenciadorGrafico& gg, Heroi* jogador1/* = nullptr*/, Heroi* jogador2) : Fase{ gg,
+        SegundaFase::SegundaFase(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1/* = nullptr*/, Desenhaveis::Heroi* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
         {
             //new Tile(Ids::heroi, "boneco.png"),
@@ -66,8 +68,13 @@ namespace Jogo {
                     }
                     break;
                 case Ids::vilao:
-                    listaAmigos.inserir(new Vilao(amigo));
+                    listaAmigos.inserir(new Desenhaveis::Vilao(amigo));
                     break;
+                case Ids::inimigo:
+                    listaAmigos.inserir(new Desenhaveis::SegundoVilao(amigo));
+                    break;
+                case Ids::chefao:
+                    listaAmigos.inserir(new Desenhaveis::Chefao(amigo));
                 default:
                     break;
                 }
@@ -77,19 +84,24 @@ namespace Jogo {
         }
 
         void SegundaFase::inicializar() {
-            if (jogador1) listaAmigos.inserir(new Heroi(Vetor2F(70.0f, 100.0f)));
-            //if (jogador1) listaAmigos.inserir(jogador1);
-            if (jogador1 && jogador2)
+            if (jogador1) listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(110.0f, 140.0f)));
+            
+            else if (jogador1 && jogador2)
             {
-                listaAmigos.inserir(new Heroi(Vetor2F(40.0f, 50.0f)));
-                listaAmigos.inserir(jogador2);
+                listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
+                listaAmigos.inserir(new Desenhaveis::SegundoHeroi(Vetor::Vetor2F(40.0f, 50.0f)));
             }
-            //if (jogador1) listaAmigos.inserir(jogador1);
 
-            listaAmigos.inserir(new Vilao(Vetor2F(40.0f, 50.0f), Vetor2F(0, 10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(40.0f, 100.0f), Vetor2F(0, -10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(80.0f, 50.0f), Vetor2F(0, -10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(80.0f, 100.0f), Vetor2F(0, 10)));
+            /*for (int i = 0; i < 3; i++) {
+                listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
+            }
+            for (int i = 0; i < 3; i++) {
+                listaAmigos.inserir(new SegundoVilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
+            }*/
+            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(40.0f, 100.0f), Vetor::Vetor2F(10, 0)));
+            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(40.0f, 200.0f), Vetor::Vetor2F(-10, 0)));
+            listaAmigos.inserir(new Desenhaveis::SegundoVilao(Vetor::Vetor2F(80.0f, 100.0f), Vetor::Vetor2F(-10, 0)));
+            listaAmigos.inserir(new Desenhaveis::Chefao(Vetor::Vetor2F(90.0f, 200.0f), Vetor::Vetor2F(10, 0)));
 
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 

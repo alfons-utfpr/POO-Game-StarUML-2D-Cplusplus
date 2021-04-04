@@ -23,7 +23,7 @@ namespace Jogo {
 
         private:
 
-            Vetor2U dimensoesMapa;
+            Vetor::Vetor2U dimensoesMapa;
             unsigned short** mapa;
             const char* caminho;
 
@@ -31,9 +31,9 @@ namespace Jogo {
 
             TileMap(const char* caminhoArquivo = nullptr);
             ~TileMap();
-            const Vetor2U getDimensoesMapa() const;
+            const Vetor::Vetor2U getDimensoesMapa() const;
             void imprimirMapa() const;
-            void setTile(Vetor2U posicao, unsigned short novoIndice);
+            void setTile(Vetor::Vetor2U posicao, unsigned short novoIndice);
             const LinhaTileMap operator[](unsigned int i) const;
 
 

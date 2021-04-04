@@ -6,7 +6,7 @@ namespace Jogo {
     namespace Fase {
         class FaseFinal : public Fase {
         public:
-            FaseFinal(Gerenciador::GerenciadorGrafico& gg, Heroi* jogador1 = nullptr, Heroi* jogador2 = nullptr);
+            FaseFinal(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
             nlohmann::json paraJSON() override;
             void carregar(const std::string& caminho) override;
             void inicializar() override;

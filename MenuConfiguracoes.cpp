@@ -9,6 +9,8 @@ namespace Jogo {
             gb.adicionarBotao(new Botao({ 200.0f, 100.0f }, { 100, 50 }, "1 Jogador", [this] {setCodigoRetorno(umJogador); }));
             gb.adicionarBotao(new Botao({ 200.0f, 180.0f }, { 100, 50 }, "2 Jogadores", [this] {setCodigoRetorno(doisJogadores); }));
             gb.adicionarBotao(new Botao({ 200.0f, 250.0f }, { 100, 50 }, "Menu principal", [this] {setCodigoRetorno(irMenuPrincipal); }));
+            //gb.adicionarBotao(&campoTexto);
+            gb.adicionarBotao(&campoTexto);
         }
 
         /*nome dos jogadores*/

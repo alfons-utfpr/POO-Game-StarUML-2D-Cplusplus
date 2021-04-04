@@ -27,7 +27,7 @@ namespace Jogo {
     private:
 
         Gerenciador::GerenciadorGrafico gerenciadorGrafico;
-        Heroi jogador1;
+        Desenhaveis::Heroi jogador1;
         Gerenciador::GerenciadorTelas gerenciadorTelas;
         bool terminar;
     public:

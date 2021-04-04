@@ -1,13 +1,17 @@
 #include "FaseExemplo.h"
-
+#include "SegundoHeroi.h"
+#include "SegundoVilao.h"
+#include "Obstaculo.h"
 #include "Tile.h"
 #include "Vilao.h"
-
+#include <iostream>
+#include <ostream>
 #include <fstream>
+#include <cstdlib>
 
 namespace Jogo {
     namespace Fase {
-        FaseExemplo::FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Heroi* jogador1/* = nullptr*/, Heroi* jogador2) : Fase{ gg,
+        FaseExemplo::FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1/* = nullptr*/, Desenhaveis::Heroi* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
          {
             //new Tile(Ids::heroi, "boneco.png"),
@@ -54,6 +58,7 @@ namespace Jogo {
 
         void FaseExemplo::carregar(const std::string& caminho) {
             std::ifstream arquivo(caminho);
+
             if (arquivo.fail()) throw "arquivo nao encontrado!";
             nlohmann::json j;
             arquivo >> j;
@@ -67,8 +72,16 @@ namespace Jogo {
                         listaAmigos.inserir(jogador1);
                     }
                     break;
+                case Ids::segundoHeroi:
+                    if (jogador2) {
+                        jogador2->inicializarComJSON(amigo);
+                        listaAmigos.inserir(jogador2);
+                    }
                 case Ids::vilao:
-                    listaAmigos.inserir(new Vilao(amigo));
+                    listaAmigos.inserir(new Desenhaveis::Vilao(amigo));
+                    break;
+                case Ids::inimigo:
+                    listaAmigos.inserir(new Desenhaveis::SegundoVilao(amigo));
                     break;
                 default:
                     break;
@@ -79,19 +92,40 @@ namespace Jogo {
         }
 
         void FaseExemplo::inicializar() {
-            if (jogador1) listaAmigos.inserir(new Heroi(Vetor2F(70.0f, 100.0f)));
-            //if (jogador1) listaAmigos.inserir(jogador1);
-            if (jogador1 && jogador2)
+            /*sf::Font cantora;
+            cantora.loadFromFile("CantoraOne-Regular.ttf");
+
+            int score = 0;
+            std::ostringstream ssScore;
+            ssScore << "Score:" << score;
+            
+            sf::Text lblScore;
+            lblScore.setCharacterSize(30);
+            lblScore.setPosition({ 10,10 });
+            lblScore.setFont(cantora);
+            lblScore.setString(ssScore.str());*/
+
+            if (jogador1) listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(70.0f, 100.0f)));
+            
+            else if (jogador1 && jogador2)
             {
-                listaAmigos.inserir(new Heroi(Vetor2F(40.0f, 50.0f)));
-                listaAmigos.inserir(jogador2);
+                listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
+                listaAmigos.inserir(new Desenhaveis::SegundoHeroi(Vetor::Vetor2F(50.0f, 50.f)));
             }
 
-            listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 50.0f), Vetor2F(0, 10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 100.0f), Vetor2F(0, -10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(100.0f, 50.0f), Vetor2F(0, -10)));
-            listaAmigos.inserir(new Vilao(Vetor2F(100.0f, 100.0f), Vetor2F(0, 10)));
-
+            /*for (int i = 0; i < 5; i++) {
+                listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
+            }
+            for (int i = 0; i < 5; i++) {
+                rand();
+                listaAmigos.inserir(new SegundoVilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
+            }*/
+            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(60.0f, 50.0f), Vetor::Vetor2F(10, 0)));
+            //listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 100.0f), Vetor2F(-20, 0)));
+            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(100.0f, 50.0f), Vetor::Vetor2F(-20, 0)));
+            //listaAmigos.inserir(new Vilao(Vetor2F(100.0f, 100.0f), Vetor2F(10, 0)));
+            listaAmigos.inserir(new Desenhaveis::SegundoVilao(Vetor::Vetor2F(80.0f, 110.0f), Vetor::Vetor2F(10, 0)));
+            listaAmigos.inserir(new Obstaculo::Obstaculo(Vetor::Vetor2F(180.0f, 110.0f), Vetor::Vetor2F(0, 0)));
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 
         }

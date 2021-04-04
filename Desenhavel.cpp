@@ -4,7 +4,7 @@
 
 namespace Jogo {
    // namespace Desenhaveis {
-        Desenhavel::Desenhavel(Ids::Ids ID /*= Ids::semID*/, Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor2F vel /*= {0.0f, 0.0f}*/, const char* caminhoTextura /*= nullptr*/) :
+        Desenhavel::Desenhavel(Ids::Ids ID /*= Ids::semID*/, Vetor::Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor::Vetor2F vel /*= {0.0f, 0.0f}*/, const char* caminhoTextura /*= nullptr*/) :
             posicao{ pos }, v{ vel }, caminho{ caminhoTextura }, id{ ID } {
 
         }
@@ -27,15 +27,15 @@ namespace Jogo {
 
         }
 
-        const Vetor2F Desenhavel::getPosicao() const {
+        const Vetor::Vetor2F Desenhavel::getPosicao() const {
             return posicao;
         }
 
-        const Vetor2F Desenhavel::getDimensoes() const {
+        const Vetor::Vetor2F Desenhavel::getDimensoes() const {
             return dimensoes;
         }
 
-        const Vetor2F Desenhavel::getIntercessao() const
+        const Vetor::Vetor2F Desenhavel::getIntercessao() const
         {
             return intercessao;
         }

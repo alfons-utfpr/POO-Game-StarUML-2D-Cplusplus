@@ -36,6 +36,9 @@ namespace Jogo
 			teste,
 			//teste_fundo,
 			teste_fundo2,
+			inimigo,
+			segundoHeroi,
+			chefao,
 			//tux_from_linux
 
 		};

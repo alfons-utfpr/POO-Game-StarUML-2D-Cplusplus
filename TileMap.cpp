@@ -41,7 +41,7 @@ namespace Jogo {
             }
         }
 
-        const Vetor2U TileMap::getDimensoesMapa() const {
+        const Vetor::Vetor2U TileMap::getDimensoesMapa() const {
             return dimensoesMapa;
         }
 
@@ -55,7 +55,7 @@ namespace Jogo {
             std::cout.flush();
         }
 
-        void TileMap::setTile(Vetor2U posicao, unsigned short novoIndice) {
+        void TileMap::setTile(Vetor::Vetor2U posicao, unsigned short novoIndice) {
             if (posicao.x >= dimensoesMapa.x || posicao.y >= dimensoesMapa.y) {
                 std::cout << "Erro! acesso indevido à memória do mapa de tiles.\n" << std::endl;
                 exit(526);

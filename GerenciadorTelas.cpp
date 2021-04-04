@@ -11,7 +11,7 @@
 
 namespace Jogo {
     namespace Gerenciador {
-        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1 /*= nullptr*/, Heroi* jogador2) :
+        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 /*= nullptr*/, Desenhaveis::Heroi* jogador2) :
             gerenciadorGrafico{ gg }, jogador1{ jogador1 }, jogador2{ jogador2 } {
             push(new Menu::MenuPrincipal(gerenciadorGrafico));
         }
@@ -23,21 +23,28 @@ namespace Jogo {
 
             case comecarPrimeiraFase:
             {
-                Fase::FaseExemplo* fase = new Fase::FaseExemplo(gerenciadorGrafico, jogador1);
+                if (jogador1)
+                {
+                    Fase::FaseExemplo* fase = new Fase::FaseExemplo(gerenciadorGrafico, jogador1);
+                    fase->inicializar();
+                    push(fase);
+                    return false;
+                }
+                Fase::FaseExemplo* fase = new Fase::FaseExemplo(gerenciadorGrafico, jogador1, jogador2);
                 fase->inicializar();
                 push(fase);
                 return false;
             }
-            /*case comecarSegundaFase:
+            case comecarSegundaFase:
             {
-                Fase::SegundaFase* fase = new Fase::SegundaFase(gerenciadorGrafico, jogador1);
+                Fase::SegundaFase* fase = new Fase::SegundaFase(gerenciadorGrafico, jogador1, jogador2);
                 fase->inicializar();
                 push(fase);
                 return false;
-            }*/
+            }
             case comecarFaseFinal:
             {
-                Fase::FaseFinal* fase = new Fase::FaseFinal(gerenciadorGrafico, jogador1);
+                Fase::FaseFinal* fase = new Fase::FaseFinal(gerenciadorGrafico, jogador1, jogador2);
                 fase->inicializar();
                 push(fase);
                 return false;
@@ -83,10 +90,6 @@ namespace Jogo {
                 esvaziarPilha();
                 push(new Menu::MenuPrincipal(gerenciadorGrafico));
 
-            case umJogador:
-                return false;
-            case doisJogadores:
-                return false;
             case continuar:
             default:
                 return false;

@@ -19,13 +19,13 @@ namespace Jogo {
 
         bool GerenciadorColisoes::estaoColidindo(Colidivel* p1, Colidivel* p2) {
 
-            Vetor2F posicao1 = p1->getPosicao();
-            Vetor2F dimensoes1 = p1->getDimensoes();
+            Vetor::Vetor2F posicao1 = p1->getPosicao();
+            Vetor::Vetor2F dimensoes1 = p1->getDimensoes();
 
-            Vetor2F posicao2 = p2->getPosicao();
-            Vetor2F dimensoes2 = p2->getDimensoes();
+            Vetor::Vetor2F posicao2 = p2->getPosicao();
+            Vetor::Vetor2F dimensoes2 = p2->getDimensoes();
 
-            Vetor2F distancia = posicao1 - posicao2;
+            Vetor::Vetor2F distancia = posicao1 - posicao2;
 
             // if (p1->getId() == Ids::vilao) {
 

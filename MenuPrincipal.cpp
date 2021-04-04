@@ -8,7 +8,7 @@ namespace Jogo {
     namespace Menu {
         MenuPrincipal::MenuPrincipal(Gerenciador::GerenciadorGrafico& GG) : Menu(GG), imprimiu{ false },
             campoTexto{ ge, 15, {200.0f, 50.0f}, {200, 40} } {
-            gb.adicionarBotao(new Botao({ 100.0f, 100.0f }, { 100, 40 }, "Primeira fase", [this] {setCodigoRetorno(comecarPrimeiraFase); }));
+            gb.adicionarBotao(new Botao({ 100.0f, 100.0f }, { 100, 40 }, "Nova Primeira", [this] {setCodigoRetorno(comecarPrimeiraFase); }));
             gb.adicionarBotao(new Botao({ 100.0f, 150.0f }, { 100, 40 }, "Segunda fase", [this] {setCodigoRetorno(comecarSegundaFase); }));
             gb.adicionarBotao(new Botao({ 100.0f, 200.0f }, { 100, 40 }, "Fase final", [this] {setCodigoRetorno(comecarFaseFinal); }));
             gb.adicionarBotao(new Botao({ 300.0f, 100.0f }, { 100, 40 }, "Carregar jogo", [this] {setCodigoRetorno(carregarJogo); }));

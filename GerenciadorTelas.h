@@ -1,4 +1,5 @@
 #pragma once
+#include "Heroi.h"
 #include "GerenciadorEstados.h"
 
 namespace Jogo {
@@ -27,11 +28,11 @@ namespace Jogo {
         class GerenciadorTelas : public GerenciadorEstados {
         private:
             GerenciadorGrafico& gerenciadorGrafico;
-            Heroi* jogador1;
-            Heroi* jogador2;
+            Desenhaveis::Heroi* jogador1;
+            Desenhaveis::Heroi* jogador2;
 
         public:
-            GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1 = nullptr, Heroi* jogador2 = nullptr);
+            GerenciadorTelas(GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
         protected:
             bool processarCodigo(int codigoRetorno) override;

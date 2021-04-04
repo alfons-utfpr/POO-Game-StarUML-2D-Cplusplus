@@ -22,7 +22,7 @@ namespace Jogo {
 
 
     Principal::Principal() :
-        jogador1{ Heroi(Vetor2F(20.0f, 20.0f)) },
+        jogador1{ Desenhaveis::Heroi(Vetor::Vetor2F(20.0f, 20.0f)) },
         gerenciadorTelas{ gerenciadorGrafico, &jogador1 },
         terminar{ false }
     {

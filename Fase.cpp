@@ -6,7 +6,7 @@
 
 namespace Jogo {
     namespace Fase {
-        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Heroi* jogador1 /*= nullptr*/, Heroi* jogador2) :
+        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Desenhaveis::Heroi* jogador1 /*= nullptr*/, Desenhaveis::Heroi* jogador2) :
             gerenciadorGrafico{ gg },
             jogador1{ jogador1 },
             jogador2{ jogador2 },

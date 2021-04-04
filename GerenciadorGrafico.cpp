@@ -38,7 +38,7 @@ namespace Jogo {
             janela->clear(sf::Color(r, g, b));
         }
 
-        void GerenciadorGrafico::desenhar(const std::string& caminho, const Vetor2F posicao) {
+        void GerenciadorGrafico::desenhar(const std::string& caminho, const Vetor::Vetor2F posicao) {
 
             if (texturas.count(caminho) == 0) {
                 std::cout << "Atencao! Imagem em " << caminho << " nao carregada!" << std::endl;
@@ -59,7 +59,7 @@ namespace Jogo {
 
         }
 
-        void GerenciadorGrafico::desenhar(const std::string& caminho, const Vetor2F posicao, const Vetor2U numeroFrames, const Vetor2U frame) {
+        void GerenciadorGrafico::desenhar(const std::string& caminho, const Vetor::Vetor2F posicao, const Vetor::Vetor2U numeroFrames, const Vetor::Vetor2U frame) {
 
             if (texturas.count(caminho) == 0) {
                 std::cout << "Atencao! Imagem em " << caminho << " nao carregada!" << std::endl;
@@ -103,12 +103,12 @@ namespace Jogo {
             }
         }
 
-        void GerenciadorGrafico::centralizar(const Vetor2F centro) {
+        void GerenciadorGrafico::centralizar(const Vetor::Vetor2F centro) {
             camera.setCenter(sf::Vector2f(centro.x, centro.y));
             janela->setView(camera); //A RenderWindow faz uma cópia da View ao invés de usar o ponteiro, então é preciso a sobre-escrever sempre que for modificada.
         }
 
-        const Vetor2F GerenciadorGrafico::getTamanhoTela() const {
+        const Vetor::Vetor2F GerenciadorGrafico::getTamanhoTela() const {
             return { camera.getSize().x, camera.getSize().y };
         }
 
@@ -116,7 +116,7 @@ namespace Jogo {
             return janela;
         }
 
-        const Vetor2F GerenciadorGrafico::getTamanho(const std::string& caminho) const {
+        const Vetor::Vetor2F GerenciadorGrafico::getTamanho(const std::string& caminho) const {
 
             if (texturas.count(caminho) == 0) {
                 std::cout << "Atencao! Imagem em " << caminho << " nao carregada!" << std::endl;
@@ -125,10 +125,10 @@ namespace Jogo {
 
             sf::Vector2u dimensoes = (texturas.at(caminho))->getSize();
 
-            return Vetor2F(dimensoes.x, dimensoes.y);
+            return Vetor::Vetor2F(dimensoes.x, dimensoes.y);
         }
 
-        void GerenciadorGrafico::desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const {
+        void GerenciadorGrafico::desenharRetanguloSolido(const Vetor::Vetor2F centro, const Vetor::Vetor2F dimensao, const Cor cor) const {
             sf::RectangleShape retangulo = sf::RectangleShape({ dimensao.x, dimensao.y });
             retangulo.setFillColor({ cor.r, cor.g, cor.b, cor.a });
             retangulo.setOrigin(dimensao.x / 2, dimensao.y / 2);
@@ -136,7 +136,7 @@ namespace Jogo {
             janela->draw(retangulo);
         }
 
-        void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar/* = true*/) const {
+        void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor::Vetor2F posicao, unsigned int tamanho, const bool centralizar/* = true*/) const {
             sf::Text txt = sf::Text(texto, fonte, tamanho);
             txt.setFillColor(sf::Color::White);
             if (centralizar) {
@@ -147,7 +147,7 @@ namespace Jogo {
             janela->draw(txt);
         }
 
-        Vetor2F GerenciadorGrafico::getPosicaoMouse() const {
+        Vetor::Vetor2F GerenciadorGrafico::getPosicaoMouse() const {
             sf::Vector2i posRelacaoJanela = sf::Mouse::getPosition(*janela);
             sf::Vector2u tamanhoJanela = janela->getSize();
             sf::Vector2f tamanhoCamera = camera.getSize();

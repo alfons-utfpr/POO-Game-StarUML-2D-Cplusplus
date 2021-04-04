@@ -1,23 +1,22 @@
-#include "Vilao.h"
-
+#include "Obstaculo.h"
 #include <iostream>
 
 namespace Jogo {
-    namespace Desenhaveis {
-        Vilao::Vilao(Vetor::Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor::Vetor2F vel /*= {0.0f, 0.0f}*/) :
-            Colidivel(pos, vel, Ids::vilao, "../imagens/inimigo6.png") {
+	namespace Obstaculo {
+        Obstaculo::Obstaculo(Vetor::Vetor2F pos, Vetor::Vetor2F vel ) :
+            Colidivel(pos, vel, Ids::vilao, "../imagens/caixote.png") {
 
         }
 
-        Vilao::Vilao(nlohmann::json fonte) : Vilao({ fonte["posicao"] }, { fonte["velocidade"] }) {
+        Obstaculo::Obstaculo(nlohmann::json fonte) : Obstaculo({ fonte["posicao"] }, { fonte["velocidade"] }) {
 
         }
 
-        Vilao::~Vilao() {
+        Obstaculo::~Obstaculo() {
 
         }
 
-        void Vilao::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
+        void Obstaculo::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
             gf.carregarTextura(caminho);
 
             dimensoes = gf.getTamanho(caminho);
@@ -25,7 +24,7 @@ namespace Jogo {
             gc.adicionarColidivel(this);
         }
 
-        void Vilao::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
+        void Obstaculo::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
 
             if (idOutro == Ids::heroi) {
                 std::cout << "nhac nhac nham nham heroi gostoso" << std::endl;
@@ -66,5 +65,5 @@ namespace Jogo {
 
             }
         }
-    }
+	}
 }
