@@ -9,18 +9,20 @@
 #include <string>
 
 namespace Jogo {
-    class CampoTexto : public Botao {
+    namespace Menu {
+        class CampoTexto : public Botao {
 
-    private:
-        PromessaTexto promessa;
+        private:
+            PromessaTexto promessa;
 
-    public:
-        CampoTexto(Gerenciador::GerenciadorEventos& ge, unsigned short comprimentoMaximo, Vetor2F Posicao = { 0.0f, 0.0f }, Vetor2F Tamanho = { 0.0f, 0.0f }, unsigned int tamTexto = 15U, Cor c = { 128, 128, 128 });
-        ~CampoTexto();
-        const std::string& getTexto() const;
-        bool getTextoPronto() const;
-        void desenhar(Gerenciador::GerenciadorGrafico& gg) const override;
-        void iniciarCaptura();
+        public:
+            CampoTexto(Gerenciador::GerenciadorEventos& ge, unsigned short comprimentoMaximo, Vetor::Vetor2F Posicao = { 0.0f, 0.0f }, Vetor::Vetor2F Tamanho = { 0.0f, 0.0f }, unsigned int tamTexto = 15U, Cor c = { 128, 128, 128 });
+            ~CampoTexto();
+            const std::string& getTexto() const;
+            bool getTextoPronto() const;
+            void desenhar(Gerenciador::GerenciadorGrafico& gg) const override;
+            void iniciarCaptura();
 
-    };
+        };
+    }
 }
