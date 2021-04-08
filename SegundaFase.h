@@ -7,7 +7,7 @@ namespace Jogo {
     namespace Fase {
         class SegundaFase : public Fase {
         public:
-            SegundaFase(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
+            SegundaFase(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Heroi* jogador2 = nullptr);
             nlohmann::json paraJSON();// override;
             void carregar(const std::string& caminho);// override;
             void inicializar(); //override;

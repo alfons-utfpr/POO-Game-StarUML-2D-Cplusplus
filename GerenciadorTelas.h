@@ -19,6 +19,7 @@ namespace Jogo {
         sairMenuPausa,
         umJogador,
         doisJogadores,
+        ranking,
     };
 
     namespace Gerenciador {
@@ -28,11 +29,11 @@ namespace Jogo {
         class GerenciadorTelas : public GerenciadorEstados {
         private:
             GerenciadorGrafico& gerenciadorGrafico;
-            Desenhaveis::Heroi* jogador1;
-            Desenhaveis::Heroi* jogador2;
+            Entidades::Desenhaveis::Heroi* jogador1;
+            Entidades::Desenhaveis::Heroi* jogador2;
 
         public:
-            GerenciadorTelas(GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
+            GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Heroi* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
         protected:
             bool processarCodigo(int codigoRetorno) override;

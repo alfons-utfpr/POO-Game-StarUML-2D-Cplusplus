@@ -159,7 +159,7 @@ namespace Jogo {
                 imprimir = "eita";
             }
 
-            std::cout << imprimir << std::endl;
+            //std::cout << imprimir << std::endl;
         }
     }
 

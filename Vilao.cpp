@@ -28,7 +28,7 @@ namespace Jogo {
         void Vilao::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
 
             if (idOutro == Ids::heroi) {
-                std::cout << "nhac nhac nham nham heroi gostoso" << std::endl;
+                std::cout << std::endl;
 
             }
             else if (idOutro == Ids::vilao) {
@@ -37,9 +37,6 @@ namespace Jogo {
 
                 posicao += distancia * (1 / 2);
 
-
-
-                std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
                 v.y *= -1;
             }
@@ -49,7 +46,6 @@ namespace Jogo {
 
                 posicao += distancia * (1 / 2);
 
-                std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
             }
             else if (idOutro == Ids::parede_up)
@@ -58,7 +54,6 @@ namespace Jogo {
 
                 posicao -= distancia * (1 / 2);
 
-                std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
             }
             else if (idOutro == Ids::parede_clara)

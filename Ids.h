@@ -39,6 +39,7 @@ namespace Jogo
 			inimigo,
 			segundoHeroi,
 			chefao,
+			caixote,
 			//tux_from_linux
 
 		};
