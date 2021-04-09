@@ -6,7 +6,7 @@ namespace Jogo {
     namespace Fase {
         class FaseExemplo : public Fase {
         public:
-            FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
+            FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Heroi* jogador2 = nullptr);
             nlohmann::json paraJSON() override;
             void carregar(const std::string& caminho) override;
             void inicializar() override;

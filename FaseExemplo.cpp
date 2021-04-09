@@ -4,14 +4,16 @@
 #include "Obstaculo.h"
 #include "Tile.h"
 #include "Vilao.h"
+#include <time.h>
 #include <iostream>
 #include <ostream>
 #include <fstream>
 #include <cstdlib>
+#include <random>
 
 namespace Jogo {
     namespace Fase {
-        FaseExemplo::FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1/* = nullptr*/, Desenhaveis::Heroi* jogador2) : Fase{ gg,
+        FaseExemplo::FaseExemplo(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Heroi* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
          {
             //new Tile(Ids::heroi, "boneco.png"),
@@ -43,7 +45,7 @@ namespace Jogo {
             },
             {32.0f, 32.0f}, "../TileMap/TileMap.json"
           }
-          , jogador1 } {
+          , jogador1, jogador2 } {
 
         }
 
@@ -92,6 +94,7 @@ namespace Jogo {
         }
 
         void FaseExemplo::inicializar() {
+            srand(time(NULL));
             /*sf::Font cantora;
             cantora.loadFromFile("CantoraOne-Regular.ttf");
 
@@ -105,27 +108,28 @@ namespace Jogo {
             lblScore.setFont(cantora);
             lblScore.setString(ssScore.str());*/
 
-            if (jogador1) listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(70.0f, 100.0f)));
+            if (jogador1) listaAmigos.inserir(new Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(70.0f, 100.0f)));
             
             else if (jogador1 && jogador2)
             {
-                listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
+                listaAmigos.inserir(new Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
                 listaAmigos.inserir(new Desenhaveis::SegundoHeroi(Vetor::Vetor2F(50.0f, 50.f)));
             }
 
-            /*for (int i = 0; i < 5; i++) {
-                listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
+            for (int i = 0; i < 5; i++) {
+                int posx = rand() % 100;
+                listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(rand()% 800 - 20, rand() % 600-20), Vetor::Vetor2F(15, 0)));
             }
             for (int i = 0; i < 5; i++) {
-                rand();
-                listaAmigos.inserir(new SegundoVilao(Vetor2F(60.0f, 50.0f), Vetor2F(10, 0)));
-            }*/
-            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(60.0f, 50.0f), Vetor::Vetor2F(10, 0)));
+                listaAmigos.inserir(new Desenhaveis::SegundoVilao(Vetor::Vetor2F(rand()%100 - 30, rand()%150 - 25), Vetor::Vetor2F(10, 0)));
+               
+            }
+            //listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(60.0f, 50.0f), Vetor::Vetor2F(10, 0)));
             //listaAmigos.inserir(new Vilao(Vetor2F(60.0f, 100.0f), Vetor2F(-20, 0)));
-            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(100.0f, 50.0f), Vetor::Vetor2F(-20, 0)));
+            //listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(100.0f, 50.0f), Vetor::Vetor2F(-20, 0)));
             //listaAmigos.inserir(new Vilao(Vetor2F(100.0f, 100.0f), Vetor2F(10, 0)));
-            listaAmigos.inserir(new Desenhaveis::SegundoVilao(Vetor::Vetor2F(80.0f, 110.0f), Vetor::Vetor2F(10, 0)));
-            listaAmigos.inserir(new Obstaculo::Obstaculo(Vetor::Vetor2F(180.0f, 110.0f), Vetor::Vetor2F(0, 0)));
+            //listaAmigos.inserir(new Desenhaveis::SegundoVilao(Vetor::Vetor2F(80.0f, 110.0f), Vetor::Vetor2F(10, 0)));
+            listaAmigos.inserir(new Obstaculo::Obstaculo(Vetor::Vetor2F(100, 110.0f), Vetor::Vetor2F(0, 0)));
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 
         }

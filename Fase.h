@@ -18,8 +18,8 @@ namespace Jogo {
         class Fase : public Estado, public Salvavel {
         protected:
             Gerenciador::GerenciadorGrafico& gerenciadorGrafico;
-            Desenhaveis::Heroi* jogador1;
-            Desenhaveis::Heroi* jogador2;
+            Entidades::Desenhaveis::Heroi* jogador1;
+            Entidades::Desenhaveis::Heroi* jogador2;
             Gerenciador::GerenciadorEventos gerenciadorEventos;
             Gerenciador::GerenciadorColisoes gerenciadorColisoes;
             Gerenciador::GerenciadorTiles* gerenciadorTiles;
@@ -27,7 +27,7 @@ namespace Jogo {
             Lista::ListaDesenhaveis listaAmigos;
 
         public:
-            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Desenhaveis::Heroi* jogador1 = nullptr, Desenhaveis::Heroi* jogador2 = nullptr);
+            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Heroi* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
             ~Fase();
             int executar() override;

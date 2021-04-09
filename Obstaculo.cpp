@@ -4,7 +4,7 @@
 namespace Jogo {
 	namespace Obstaculo {
         Obstaculo::Obstaculo(Vetor::Vetor2F pos, Vetor::Vetor2F vel ) :
-            Colidivel(pos, vel, Ids::vilao, "../imagens/caixote.png") {
+            Colidivel(pos, vel, Ids::caixote, "../imagens/caixote.png") {
 
         }
 
@@ -27,7 +27,7 @@ namespace Jogo {
         void Obstaculo::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
 
             if (idOutro == Ids::heroi) {
-                std::cout << "nhac nhac nham nham heroi gostoso" << std::endl;
+               // std::cout << "nhac nhac nham nham heroi gostoso" << std::endl;
 
             }
             else if (idOutro == Ids::vilao) {
@@ -38,7 +38,7 @@ namespace Jogo {
 
 
 
-                std::cout << "po desculpa ai cumpadi" << std::endl;
+               // std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
                 v.y *= -1;
             }
@@ -48,7 +48,7 @@ namespace Jogo {
 
                 posicao += distancia * (1 / 2);
 
-                std::cout << "po desculpa ai cumpadi" << std::endl;
+                //std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
             }
             else if (idOutro == Ids::parede_up)
@@ -57,7 +57,7 @@ namespace Jogo {
 
                 posicao -= distancia * (1 / 2);
 
-                std::cout << "po desculpa ai cumpadi" << std::endl;
+               // std::cout << "po desculpa ai cumpadi" << std::endl;
                 v.x *= -1;
             }
             else if (idOutro == Ids::parede_clara)

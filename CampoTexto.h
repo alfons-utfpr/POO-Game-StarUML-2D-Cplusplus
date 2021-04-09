@@ -22,6 +22,7 @@ namespace Jogo {
             bool getTextoPronto() const;
             void desenhar(Gerenciador::GerenciadorGrafico& gg) const override;
             void iniciarCaptura();
+            void Score(const int score, const std::string nome);
 
         };
     }

@@ -1,9 +1,12 @@
 #include "CampoTexto.h"
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 namespace Jogo {
     namespace Menu {
-        CampoTexto::CampoTexto(Gerenciador::GerenciadorEventos& ge, unsigned short comprimentoMaximo, Vetor::Vetor2F Posicao/* = {0.0f, 0.0f}*/,
-            Vetor::Vetor2F Tamanho/* = {0.0f, 0.0f}*/, unsigned int tamTexto/* = 15U*/, Cor c/* = {128, 128, 128}*/) :
+        CampoTexto::CampoTexto(Gerenciador::GerenciadorEventos& ge, unsigned short comprimentoMaximo, Vetor::Vetor2F Posicao,
+            Vetor::Vetor2F Tamanho, unsigned int tamTexto, Cor c) :
             Botao{ Posicao, Tamanho, "", [this]() {iniciarCaptura(); }, tamTexto, c },
             promessa{ ge, comprimentoMaximo } {}
 
@@ -27,6 +30,10 @@ namespace Jogo {
 
         void CampoTexto::iniciarCaptura() {
             promessa.comecar();
+        }
+        void CampoTexto::Score(const int score, const std::string nome)
+        {
+            
         }
     }
 }

@@ -8,7 +8,7 @@
 
 namespace Jogo {
     namespace Fase {
-        FaseFinal::FaseFinal(Gerenciador::GerenciadorGrafico& gg, Desenhaveis::Heroi* jogador1/* = nullptr*/, Desenhaveis::Heroi* jogador2) : Fase{ gg,
+        FaseFinal::FaseFinal(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1/* = nullptr*/, Entidades::Desenhaveis::Heroi* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
         {
             //new Tile(Ids::heroi, "boneco.png"),
@@ -88,7 +88,7 @@ namespace Jogo {
             if (jogador1) listaAmigos.inserir(jogador1);
             else if (jogador1 && jogador2)
             {
-                listaAmigos.inserir(new Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
+                listaAmigos.inserir(new Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
                 listaAmigos.inserir(new Desenhaveis::SegundoHeroi(Vetor::Vetor2F(50.0f, 50.f)));
             }
 
