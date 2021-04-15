@@ -1,10 +1,11 @@
 #include "Fase.h"
 #include "GerenciadorTelas.h"
 #include "Alien.h"
+#include <iostream>
 
 namespace Jogo {
     namespace Fase {
-        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Heroi* jogador2) :
+        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
             gerenciadorGrafico{ gg },
             jogador1{ jogador1 },
             jogador2{ jogador2 },
@@ -17,6 +18,7 @@ namespace Jogo {
             gerenciadorTiles->inicializar(gerenciadorGrafico, gerenciadorEventos);
             gerenciadorEventos.setJanela(gerenciadorGrafico.getJanela());
             gerenciadorColisoes.setGerenciadorTiles(gerenciadorTiles);
+            pontos = 0;
         }
 
         Fase::~Fase() {
@@ -48,6 +50,13 @@ namespace Jogo {
             if (evento.type == sf::Event::KeyReleased && evento.key.code == sf::Keyboard::Key::Escape) {
                 setCodigoRetorno(irMenuPausa);
                 relogio.pausar();
+            }
+        }
+
+        void Fase::initFont()
+        {
+            if (this->font.loadFromFile("CantoraOne-Regular.ttf")) {
+                std::cout << "Erro na fonte" << std::endl;
             }
         }
 

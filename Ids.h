@@ -37,6 +37,7 @@ namespace Jogo
 			segundoHeroi,
 			chefao,
 			caixote,
+			frida,
 
 		};
 	}

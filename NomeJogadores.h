@@ -3,18 +3,19 @@
 #include "CampoTexto.h"
 
 namespace Jogo {
-    namespace Menu {
-        class MenuJogador : public Menu {
+	namespace Menu {
+		class NomeJogadores: public Menu
+		{
         protected:
             bool imprimiu;
             CampoTexto campoTexto;
 
         public:
-            MenuJogador(Gerenciador::GerenciadorGrafico& GG);
+            NomeJogadores(Gerenciador::GerenciadorGrafico& GG);
             int executar() override;
             int usarDoisJogadores(int codigoRetorno);
-        };
-    }
-
+            };
+		};
+	}
 }
 

@@ -5,12 +5,13 @@
 
 namespace Jogo {
     namespace Fase {
-        class FaseFinal : public Fase {
+        class Manicomio : public Fase {
         public:
-            FaseFinal(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
+            Manicomio(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
             nlohmann::json paraJSON() override;
             void carregar(const std::string& caminho) override;
             void inicializar() override;
+           
         };
     }
 }

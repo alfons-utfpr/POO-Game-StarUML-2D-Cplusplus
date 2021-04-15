@@ -15,14 +15,6 @@ namespace Jogo {
         GerenciadorGrafico::~GerenciadorGrafico() {
             delete janela;
 
-            //auto é uma palavra-chave que significa, em essência "o tipo da variável que declararei em seguida é o tipo que atribuirei a ela".
-            //Nesse caso, substitui o tipo std::map<const std::string, sf::Texture*>::iterator ou std::map<const std::string, sf::Texture*>::const_iterator
-            /*
-            for (auto i = texturas.begin(); i != texturas.end(); ++i) {
-              delete (*i).second;
-            }
-            */
-
             for (auto i : texturas) {
                 delete i.second;
             }

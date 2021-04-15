@@ -1,11 +1,12 @@
 #include "EntidadeFisica.h"
 #include "Vetor2D.h"
 
+
 namespace Jogo
 {
 	namespace Entidades
 	{
-		EntidadeFisica::EntidadeFisica(): Entidade(), altura(0), largura(0), ajustes (0,0)
+		EntidadeFisica::EntidadeFisica(): Entidade(), altura(0), largura(0), ajuste (0,0)
 		{
 
 		}
@@ -21,8 +22,8 @@ namespace Jogo
 
 		void EntidadeFisica::ajustar()
 		{
-			posicao += ajustes;
-			ajustes = Vetor::Vetor2F(0, 0);
+			posicao += ajuste;
+			ajuste = Vetor::Vetor2F(0, 0);
 		}
 		
 		void EntidadeFisica::setPos(Vetor::Vetor2F pos)
@@ -44,9 +45,9 @@ namespace Jogo
 		{
 			return id;
 		}
-		int EntidadeFisica::getLevel() const
+		/*Fase::Fase* EntidadeFisica::getLevel() const
 		{
-			return 0;
-		}
+			return faseAtual;
+		}*/
 	}
 }

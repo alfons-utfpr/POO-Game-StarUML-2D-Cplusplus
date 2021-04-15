@@ -8,6 +8,7 @@
 #include "ListaDesenhaveis.h"
 #include "Desenhavel.h"
 #include "Heroi.h"
+#include "Frida.h"
 #include "Relogio.h"
 
 namespace Jogo {
@@ -16,15 +17,16 @@ namespace Jogo {
         protected:
             Gerenciador::GerenciadorGrafico& gerenciadorGrafico;
             Entidades::Desenhaveis::Heroi* jogador1;
-            Entidades::Desenhaveis::Heroi* jogador2;
+            Entidades::Desenhaveis::Frida* jogador2;
             Gerenciador::GerenciadorEventos gerenciadorEventos;
             Gerenciador::GerenciadorColisoes gerenciadorColisoes;
             Gerenciador::GerenciadorTiles* gerenciadorTiles;
             Relogio relogio; 
             Lista::ListaDesenhaveis listaAmigos;
 
+
         public:
-            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Heroi* jogador2 = nullptr);
+            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
             ~Fase();
             int executar() override;
@@ -35,6 +37,11 @@ namespace Jogo {
             unsigned int IdOuvinteEntrarMenu;
             void botaoFecharTelaApertado(const sf::Event evento);
             void botaoEntrarMenuApertado(const sf::Event evento);
+            int pontos;
+            sf::Font font;
+            sf::Text texto;
+
+            void initFont();
 
         protected:
             void setCodigoRetorno(int codigo);

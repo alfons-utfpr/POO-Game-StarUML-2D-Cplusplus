@@ -1,7 +1,7 @@
 #include "Heroi.h"
 #include "Desenhavel.h"
 #include "GerenciadorTelas.h"
-#include "SegundaFase.h"
+#include "Hospital.h"
 #include <iostream>
 
 namespace Jogo {
@@ -11,6 +11,7 @@ namespace Jogo {
                 vel_x = 80;
                 vel_y = 80;
                 vidas = 3;
+  
             }
 
             Heroi::~Heroi() {
@@ -29,7 +30,7 @@ namespace Jogo {
             }
 
             void Heroi::atualizar(float t) {
-                if (std::abs(v.y) <= 5)
+                /*if (std::abs(v.y) <= 5)
                 {
                     isJumping = false;
                     v.y = 0;
@@ -49,7 +50,7 @@ namespace Jogo {
                 if (std::abs(v.y) > vel_y) 
                 {
                     v.y = vel_y * (v.y > 0 ? 1 : -1);
-                }
+                }*/
 
                 posicao += v * t;
             }
@@ -94,10 +95,11 @@ namespace Jogo {
                         v.x += vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        if (!isJumping) {
+                        v.y += vel_y;
+                        /*if (!isJumping) {
                             isJumping = true;
                             vel_y -= 0.2 * vel_y;
-                        }
+                        }*/
                         break;
                     case sf::Keyboard::Key::Down:
                         v.y -= vel_x;
@@ -109,38 +111,27 @@ namespace Jogo {
             }
 
             void Heroi::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
-                std::string imprimir;
+                //std::string imprimir;
                 
-                if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara ) {
-                    float dist_x = (static_cast<float>(dimensoes.x) + posicao.x) / 2 - std::abs(posicao.x + static_cast<float>(dimensoes.x) / 2 - posicaoOutro.x - dimensoes.x / 2);
-                    float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
-
-
-                    if (dist_x * dist_y > .001 * dimensoes.x * dimensoes.y) {
-                        if (dist_x < dist_y) {
-                            imprimir = "funcao1";
-                            //colisao em X
-                            if (dist_x > std::abs(ajustes.x)) {
-                                posicao.x += dist_x * (posicao.x + static_cast<float>(dimensoes.x) / 2 > posicaoOutro.x + posicao.x / 2 ? 1 : -1);
-                            }
-                        }
-                        else {
-                            //colisao em Y
-                            imprimir = "funcao2";
-                            if (dist_y > std::abs(ajustes.y)) {
-                                posicao.y += dist_y * (posicao.y + static_cast<float>(dimensoes.y) / 2 > posicaoOutro.y + posicao.y / 2 ? 1 : -1);
-                            }
-                        }
+                if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::frida) {
+                    Vetor::Vetor2F dist = posicao - posicaoOutro;
+                    float sobr_x = std::abs(dist.x) - (dimensoes.x + dimensoesOutro.x) * 0.5;
+                    float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
+                    if (sobr_x > sobr_y) {
+                        posicao.x += (dist.x > 0 ? -1 : 1) * sobr_x;
+                    }
+                    else {
+                        posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
                     }
                 }
 
-                else if (idOutro == Ids::vilao || idOutro == Ids::inimigo) {
+                else if (idOutro == Ids::vilao || idOutro == Ids::inimigo ) {
+                    
+                    //float dist_x = (static_cast<float>(dimensoes.x) + posicao.x) / 2 - std::abs(posicao.x + static_cast<float>(dimensoes.x) / 2 - posicaoOutro.x - dimensoes.x / 2);
+                    //float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
                     std::cout << "perdeu" << std::endl;
-                    float dist_x = (static_cast<float>(dimensoes.x) + posicao.x) / 2 - std::abs(posicao.x + static_cast<float>(dimensoes.x) / 2 - posicaoOutro.x - dimensoes.x / 2);
-                    float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
 
-
-                    if (dist_x * dist_y > .001 * dimensoes.x * dimensoes.y) {
+                    /*if (dist_x * dist_y > .001 * dimensoes.x * dimensoes.y) {
                         if (dist_x < dist_y) {
                             //colisao em X
                             if (dist_x > std::abs(ajustes.x)) {
@@ -153,7 +144,10 @@ namespace Jogo {
                                 posicao.y += dist_y * (posicao.y + static_cast<float>(dimensoes.y) / 2 > posicaoOutro.y + posicao.y / 2 ? 1 : -1);
                             }
                         }
-                    }
+                    }*/
+                }
+                else if (idOutro == Ids::caixote) {
+                    CodigoRetorno::fimDeJogo;
                 }
 
                 else if (idOutro == Ids::espinho_fundo) {
@@ -170,23 +164,23 @@ namespace Jogo {
 
                 else if (idOutro == Ids::porta)
                 {
-                    //proximo nivel
+                    //Gerenciador::GerenciadorTelas::processarCodigo(comecarSegundaFase);
                 }
             }
             void Heroi::ajustar()
             {
                 ajustes = Vetor::Vetor2F(0, 0);
                 posicao += ajustes;
-                
 
                 if (ajustes.y < 0) {
                     isJumping = false;
-
+                    //v.x = 0;
                     v.y = 0;
                 }
                 else if (ajustes.y > 0) {
                     v.y = 0;
                 }
+                //Entidades::EntidadeFisica::ajustar();
             }
             const int Heroi::getVidas() const
             {

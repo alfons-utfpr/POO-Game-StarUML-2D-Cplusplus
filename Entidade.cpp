@@ -4,7 +4,7 @@ namespace Jogo
 {
 	namespace Entidades
 	{
-		Entidade::Entidade()
+		Entidade::Entidade(): posicao{0.0f, 0.0f} /*faseAtual{nullptr}*/
 		{
 
 		}
@@ -13,5 +13,14 @@ namespace Jogo
 		{
 
 		}
+		/*void Entidade::setFase(Fases::Fase* fase)
+		{
+			faseAtual = fase;
+		}
+		void Entidade::inicializacaoGenerica(Fases::Fase* fase)
+		{
+			faseAtual = fase;
+			inicializacoesEspecificas();
+		}*/
 	}
 }

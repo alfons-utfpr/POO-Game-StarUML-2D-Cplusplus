@@ -1,8 +1,8 @@
 #include "GerenciadorTelas.h"
 #include "Score.h"
 #include "FaseFinal.h"
-#include "SegundaFase.h"
-#include "PrimeiraFase.h"
+#include "Hospital.h"
+#include "Manicomio.h"
 #include "MenuPrincipal.h"
 #include "MenuPausa.h"
 #include "MenuJogador.h"
@@ -11,7 +11,7 @@
 
 namespace Jogo {
     namespace Gerenciador {
-        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Heroi* jogador2) :
+        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
             gerenciadorGrafico{ gg }, jogador1{ jogador1 }, jogador2{ jogador2 } {
             push(new Menu::MenuPrincipal(gerenciadorGrafico));
         }
@@ -27,15 +27,43 @@ namespace Jogo {
                 return false;
             }
 
-            case comecarSegundaFase:
+            case umJogador:
             {
-                Fase::SegundaFase* fase = new Fase::SegundaFase(gerenciadorGrafico, jogador1, jogador2);
-                fase->inicializar();
-                push(fase);
+                push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
                 return false;
             }
 
+            case doisJogadores:
+            {
+                push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
+                return false;
+            }
+
+            case comecarSegundaFase:
+            {
+                if (umJogador)
+                {
+                    Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1, 0);
+                    fase->inicializar();
+                    push(fase);
+                    return false;
+                }
+                else if (umJogador && doisJogadores)
+                {
+                    Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1, jogador2);
+                    fase->inicializar();
+                    push(fase);
+                    return false;
+                }
+            }
+
             case classificacao:
+            {
+                push(new Menu::Score(gerenciadorGrafico));
+                return false;
+            }
+
+            case fimDeJogo:
             {
                 push(new Menu::Score(gerenciadorGrafico));
                 return false;
@@ -54,7 +82,7 @@ namespace Jogo {
             case carregarJogo:
             {
                 std::cout << "como";
-                Fase::PrimeiraFase* fase = new Fase::PrimeiraFase(gerenciadorGrafico, jogador1, jogador2);
+                Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
                 std::cout << " onde" << std::endl;
                 try {
                     fase->carregar("../jogos-salvos/jogo_salvo.json");
@@ -74,30 +102,27 @@ namespace Jogo {
                 pop();
                 return false;
 
-            case configuracoes:
-                push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
-                return false;
-
             case irMenuPrincipal:
                 esvaziarPilha();
                 push(new Menu::MenuPrincipal(gerenciadorGrafico));
                 return false;
 
             case comecarPrimeiraFase:
-                if (jogador1)
+                if (umJogador)
                 {
-                    Fase::PrimeiraFase* fase = new Fase::PrimeiraFase(gerenciadorGrafico, jogador1);
+                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, 0);
                     fase->inicializar();
                     push(fase);
                     return false;
                 }
-                else if (jogador1 && jogador2)
+                else if (umJogador && doisJogadores)
                 {
-                    Fase::PrimeiraFase* fase = new Fase::PrimeiraFase(gerenciadorGrafico, jogador1, jogador2);
+                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
                     fase->inicializar();
                     push(fase);
                     return false;
                 }
+
             case continuar:
                 return false;
 

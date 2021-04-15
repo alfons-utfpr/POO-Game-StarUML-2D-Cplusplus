@@ -52,19 +52,19 @@ namespace Jogo {
             prox = Prox;
         }
 
-        /*template<typename TE>
         template<typename TF>
+        template<typename TE>
+        inline char* Lista<TF>::ElementoLista<TE>::getNome() const
+        {
+            return NULL;
+        }
+
+        template<typename TF>
+        template<typename TE>
         void Lista<TF>::ElementoLista<TE>::setNome(const char* n)
         {
 
         }
-
-        template<typename TE>
-        template<typename TF>
-        char* Lista<TF>::ElementoLista<TE>::getNome()
-        {
-            return nome;
-        }*/
 
         template <typename TF>
         template <typename TE>

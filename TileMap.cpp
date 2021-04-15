@@ -10,7 +10,7 @@ namespace Jogo {
     namespace Tile {
         using LinhaTileMap = TileMap::LinhaTileMap;
 
-        LinhaTileMap::LinhaTileMap(unsigned short* p /*= nullptr*/, unsigned int c /*= 0*/) : linha{ p }, comprimento{ c } {
+        LinhaTileMap::LinhaTileMap(unsigned short* p, unsigned int c) : linha{ p }, comprimento{ c } {
 
         }
 
@@ -28,7 +28,7 @@ namespace Jogo {
         }
 
 
-        TileMap::TileMap(const char* caminhoArquivo /*= nullptr*/) : mapa{ nullptr }, caminho{ caminhoArquivo } {
+        TileMap::TileMap(const char* caminhoArquivo) : mapa{ nullptr }, caminho{ caminhoArquivo } {
             if (caminho) CarregarMapa();
         }
 

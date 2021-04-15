@@ -1,5 +1,4 @@
 #include "Relogio.h"
-
 #include <iostream>
 
 namespace Jogo {
@@ -14,11 +13,10 @@ namespace Jogo {
             reiniciar();
             return 0.0;
         }
-
         atual = clock();
 
         dt = (double)(atual - ultimo) / CLOCKS_PER_SEC;
-        std::cout << atual / (double)CLOCKS_PER_SEC << std::endl;
+        //std::cout << atual / (double)CLOCKS_PER_SEC << std::endl;
 
         ultimo = atual;
 

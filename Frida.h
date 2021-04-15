@@ -5,13 +5,11 @@
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
 #include "../Json/json.hpp"
-//#include "EntidadeFisica.h"
-
 
 namespace Jogo {
-    namespace Entidades {
+    namespace Entidades{
         namespace Desenhaveis {
-            class Heroi : public Colidivel {
+            class Frida : public Colidivel {
             private:
                 float vel_x;
                 float vel_y;
@@ -22,8 +20,8 @@ namespace Jogo {
                 Vetor::Vetor2F ajustes;
 
             public:
-                Heroi(Vetor::Vetor2F pos = { 0.0f , 0.0f });
-                ~Heroi();
+                Frida(Vetor::Vetor2F pos = { 0.0f , 0.0f });
+                ~Frida();
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
@@ -31,9 +29,9 @@ namespace Jogo {
                 void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
                 void inicializarComJSON(nlohmann::json fonte);
                 void ajustar();
-                //void proximaFase(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
                 const int getVidas() const;
             };
         }
     }
 }
+

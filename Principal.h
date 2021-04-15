@@ -9,6 +9,7 @@ namespace Jogo {
     private:
         Gerenciador::GerenciadorGrafico gerenciadorGrafico;
         Entidades::Desenhaveis::Heroi jogador1;
+        Entidades::Desenhaveis::Frida jogador2;
         Gerenciador::GerenciadorTelas gerenciadorTelas;
         bool terminar;
 

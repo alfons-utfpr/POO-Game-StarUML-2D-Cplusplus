@@ -36,13 +36,13 @@ namespace Jogo {
                     if (dist_x < dist_y) {
                         //colisao em X
                         if (dist_x > std::abs(ajustes.x)) {
-                            v.x += dist_x * (posicao.x + static_cast<float>(dimensoes.x) / 2 > posicaoOutro.x + posicao.x / 2 ? 1 : -1);
+                            posicao.x += dist_x * (posicao.x + static_cast<float>(dimensoes.x) / 2 > posicaoOutro.x + posicao.x / 2 ? 1 : -1);
                         }
                     }
                 }
 
                 else if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara) {
-                    v.x = 0;
+                    //
                 }
             }
         }
