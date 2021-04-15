@@ -4,7 +4,6 @@
 #include "SegundaFase.h"
 #include <iostream>
 
-
 namespace Jogo {
     namespace Entidades {
         namespace Desenhaveis {
@@ -15,7 +14,6 @@ namespace Jogo {
             }
 
             Heroi::~Heroi() {
-
 
             }
 
@@ -28,8 +26,6 @@ namespace Jogo {
 
                 gc.adicionarColidivel(this);
 
-
-
             }
 
             void Heroi::atualizar(float t) {
@@ -38,7 +34,7 @@ namespace Jogo {
                     isJumping = false;
                     v.y = 0;
                 } 
-
+                
                 else 
                 {
                     isJumping = true;
@@ -100,7 +96,7 @@ namespace Jogo {
                     case sf::Keyboard::Key::Up:
                         if (!isJumping) {
                             isJumping = true;
-                            vel_y -= 2 * vel_y;
+                            vel_y -= 0.2 * vel_y;
                         }
                         break;
                     case sf::Keyboard::Key::Down:
@@ -115,7 +111,7 @@ namespace Jogo {
             void Heroi::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
                 std::string imprimir;
                 
-                if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara) {
+                if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara ) {
                     float dist_x = (static_cast<float>(dimensoes.x) + posicao.x) / 2 - std::abs(posicao.x + static_cast<float>(dimensoes.x) / 2 - posicaoOutro.x - dimensoes.x / 2);
                     float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
 
@@ -139,56 +135,43 @@ namespace Jogo {
                 }
 
                 else if (idOutro == Ids::vilao || idOutro == Ids::inimigo) {
-                    vidas--;
+                    std::cout << "perdeu" << std::endl;
+                    float dist_x = (static_cast<float>(dimensoes.x) + posicao.x) / 2 - std::abs(posicao.x + static_cast<float>(dimensoes.x) / 2 - posicaoOutro.x - dimensoes.x / 2);
+                    float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
 
-                    if (vidas == 0) {
-                        imprimir = "perdeu";
+
+                    if (dist_x * dist_y > .001 * dimensoes.x * dimensoes.y) {
+                        if (dist_x < dist_y) {
+                            //colisao em X
+                            if (dist_x > std::abs(ajustes.x)) {
+                                posicao.x += dist_x * (posicao.x + static_cast<float>(dimensoes.x) / 2 > posicaoOutro.x + posicao.x / 2 ? 1 : -1);
+                            }
+                        }
+                        else {
+                            //colisao em Y
+                            if (dist_y > std::abs(ajustes.y)) {
+                                posicao.y += dist_y * (posicao.y + static_cast<float>(dimensoes.y) / 2 > posicaoOutro.y + posicao.y / 2 ? 1 : -1);
+                            }
+                        }
                     }
+                }
+
+                else if (idOutro == Ids::espinho_fundo) {
+                    vidas--;
+                    float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
+                    if (dist_y > std::abs(ajustes.y)) {
+                        posicao.y += dist_y * (posicao.y + static_cast<float>(dimensoes.y) / 2 > posicaoOutro.y + posicao.y / 2 ? 1 : -1);
+                    }
+                }
+
+                else if (idOutro == Ids::buracoInfinito) {
+                    //a fazer
                 }
 
                 else if (idOutro == Ids::porta)
                 {
                     //proximo nivel
                 }
-                switch (idOutro) {
-                case Ids::vilao:
-
-                    posicao.x -= 0.3;
-                    vidas -= 1;
-                    imprimir = "ai ui ui";
-                    break;
-                case Ids::inimigo:
-                    posicao.x -= 0.9;
-                    vidas -= 1;
-                    break;
-                case Ids::parede_up:
-                    break;
-                case Ids::parede_clara:
-
-                    break;
-                case Ids::fundo:
-
-                    break;
-                case Ids::semID:
-
-                    break;
-                case Ids::espinho_fundo:
-                    posicao.y -= 0.5;
-                    vidas -= 1;
-
-                    break;
-                case Ids::porta:
-
-                    break;
-                case Ids::caixote:
-
-                    break;
-                default:
-                    imprimir = "eita";
-                }
-
-                std::cout << imprimir << std::endl;
-
             }
             void Heroi::ajustar()
             {

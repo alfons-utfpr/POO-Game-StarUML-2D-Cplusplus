@@ -1,12 +1,10 @@
 #include "Fase.h"
-
 #include "GerenciadorTelas.h"
-
-#include "Vilao.h"
+#include "Alien.h"
 
 namespace Jogo {
     namespace Fase {
-        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1 /*= nullptr*/, Entidades::Desenhaveis::Heroi* jogador2) :
+        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Heroi* jogador2) :
             gerenciadorGrafico{ gg },
             jogador1{ jogador1 },
             jogador2{ jogador2 },
@@ -21,10 +19,9 @@ namespace Jogo {
             gerenciadorColisoes.setGerenciadorTiles(gerenciadorTiles);
         }
 
-
-
         Fase::~Fase() {
             listaAmigos.removerPrimeiro(jogador1);
+            listaAmigos.removerPrimeiro(jogador2);
             listaAmigos.destruirDesenhaveis();
             delete gerenciadorTiles;
         }

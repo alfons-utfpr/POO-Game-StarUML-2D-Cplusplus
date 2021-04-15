@@ -1,18 +1,17 @@
 #include "FaseFinal.h"
 #include "SegundoHeroi.h"
 #include "Tile.h"
-#include "Vilao.h"
-#include "SegundoVilao.h"
+#include "Alien.h"
+#include "LagartoVerde.h"
 #include "Chefao.h"
 #include <fstream>
 
 namespace Jogo {
     namespace Fase {
-        FaseFinal::FaseFinal(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1/* = nullptr*/, Entidades::Desenhaveis::Heroi* jogador2) : Fase{ gg,
+        FaseFinal::FaseFinal(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Heroi* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
         {
-            //new Tile(Ids::heroi, "boneco.png"),
-             new Tile::Tile(Ids::armadilha_direita, "armadilha_direita.png"),
+            new Tile::Tile(Ids::armadilha_direita, "armadilha_direita.png"),
             new Tile::Tile(Ids::armadilha_esquerda,"armadilha_esquerda.png"),
             new Tile::Tile(Ids::espinho,"espinho.png"),
             new Tile::Tile(Ids::espinho_direita,"espinho_direita.png"),
@@ -26,12 +25,11 @@ namespace Jogo {
             new Tile::Tile(Ids::parede_up,"parede_clara.png"),
             new Tile::Tile(Ids::personagem,"personagem.png"),
             new Tile::Tile(Ids::porta,"porta.png"),
-            new Tile::Tile(Ids::prisao,"prisao.png"),
+            //new Tile::Tile(Ids::prisao,"prisao.png"),
             new Tile::Tile(Ids::teste,"teste.png"),
             new Tile::Tile(Ids::teste_fundo,"teste_fundo.png"),
             new Tile::Tile(Ids::teste_fundo2,"teste_fundo2.png"),
-            new Tile::Tile(Ids::teste_chama,"teste_chama.png"),
-            // new Tile(Ids::tux_from_linux,"tux_from_linux.png"),
+            //new Tile::Tile(Ids::teste_chama,"teste_chama.png"),
             },
             {32.0f, 32.0f}, "../TileMap/TileMap.json"
           }
@@ -69,10 +67,10 @@ namespace Jogo {
                         listaAmigos.inserir(jogador2);
                     }
                 case Ids::vilao:
-                    listaAmigos.inserir(new Desenhaveis::Vilao(amigo));
+                    listaAmigos.inserir(new Desenhaveis::Alien(amigo));
                     break;
                 case Ids::inimigo:
-                    listaAmigos.inserir(new Desenhaveis::SegundoVilao(amigo));
+                    listaAmigos.inserir(new Desenhaveis::LagartoVerde(amigo));
                     break;
                 case Ids::chefao:
                     listaAmigos.inserir(new Desenhaveis::Chefao(amigo));
@@ -89,12 +87,12 @@ namespace Jogo {
             else if (jogador1 && jogador2)
             {
                 listaAmigos.inserir(new Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(40.0f, 50.0f)));
-                listaAmigos.inserir(new Desenhaveis::SegundoHeroi(Vetor::Vetor2F(50.0f, 50.f)));
+                listaAmigos.inserir(new Entidades::Desenhaveis::SegundoHeroi(Vetor::Vetor2F(50.0f, 50.f)));
             }
 
-            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(40.0f, 50.0f), Vetor::Vetor2F(0, 10)));
-            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(40.0f, 100.0f), Vetor::Vetor2F(0, -10)));
-            listaAmigos.inserir(new Desenhaveis::Vilao(Vetor::Vetor2F(80.0f, 50.0f), Vetor::Vetor2F(0, -10)));
+            listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(40.0f, 50.0f), Vetor::Vetor2F(0, 10)));
+            listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(40.0f, 100.0f), Vetor::Vetor2F(0, -10)));
+            listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(80.0f, 50.0f), Vetor::Vetor2F(0, -10)));
             listaAmigos.inserir(new Desenhaveis::Chefao(Vetor::Vetor2F(80.0f, 100.0f), Vetor::Vetor2F(0, 10)));
 
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);

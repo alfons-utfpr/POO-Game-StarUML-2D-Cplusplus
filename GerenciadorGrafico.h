@@ -1,9 +1,7 @@
 #pragma once
 #include <map>
 #include <string>
-
 #include <SFML/Graphics.hpp>
-
 #include "Vetor2D.h"
 #include "Cor.h"
 
@@ -33,9 +31,6 @@ namespace Jogo {
             void desenharRetanguloSolido(const Vetor::Vetor2F centro, const Vetor::Vetor2F dimensao, const Cor cor) const;
             void desenharTexto(const std::string texto, const Vetor::Vetor2F posicao, unsigned int tamanho, const bool centralizar = true) const;
             Vetor::Vetor2F getPosicaoMouse() const;
-
-
-
         };
     }
 }

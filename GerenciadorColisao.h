@@ -9,8 +9,6 @@
 namespace Jogo {
     class Colidivel;
     namespace Gerenciador {
-        
-
         class GerenciadorColisoes {
         private:
             std::set<Colidivel*> colidiveis;

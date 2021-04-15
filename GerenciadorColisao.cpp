@@ -1,10 +1,7 @@
 #include "GerenciadorColisao.h"
 #include "Colidivel.h"
-
 #include "Vetor2D.h"
-
 #include <math.h>
-
 #include <iostream>
 
 namespace Jogo {
@@ -26,12 +23,6 @@ namespace Jogo {
             Vetor::Vetor2F dimensoes2 = p2->getDimensoes();
 
             Vetor::Vetor2F distancia = posicao1 - posicao2;
-
-            // if (p1->getId() == Ids::vilao) {
-
-            //  std::cout << '(' << posicao1.x << ',' << posicao1.y << ')' << '(' << posicao2.x << ',' << posicao2.y << ')'<< '(' << distancia.x << ',' << distancia.y << ')'<< (dimensoes1.x + dimensoes2.x)/2.0 << ' ' << (dimensoes1.y + dimensoes2.y)/2. << '\n';
-
-            // }
 
             if (p1 == p2) return false;
 
@@ -76,12 +67,9 @@ namespace Jogo {
                         p2->colidir(p1->getId(), p1->getPosicao(), p1->getDimensoes());
 
                     }
-
                 }
 
-                //std::cout << '\n' << std::endl;
             }
-
         }
 
         void GerenciadorColisoes::setGerenciadorTiles(Gerenciador::GerenciadorTiles* Gt) {

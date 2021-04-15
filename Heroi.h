@@ -11,7 +11,6 @@
 namespace Jogo {
     namespace Entidades {
         namespace Desenhaveis {
-
             class Heroi : public Colidivel {
             private:
                 float vel_x;
@@ -33,7 +32,6 @@ namespace Jogo {
                 void inicializarComJSON(nlohmann::json fonte);
                 void ajustar();
                 const int getVidas() const;
-
             };
         }
     }

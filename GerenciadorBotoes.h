@@ -3,7 +3,6 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "Botao.h"
-
 #include <vector>
 
 namespace Jogo {

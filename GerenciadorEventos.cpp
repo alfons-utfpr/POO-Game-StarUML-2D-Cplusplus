@@ -2,9 +2,7 @@
 
 namespace Jogo {
     namespace Gerenciador {
-        unsigned int GerenciadorEventos::proximoID{ 1 }; // :)
-
-
+        unsigned int GerenciadorEventos::proximoID{ 1 };
 
         GerenciadorEventos::GerenciadorEventos() {
 
@@ -65,7 +63,6 @@ namespace Jogo {
 
         }
 
-
         unsigned int GerenciadorEventos::adicionarOuvinteTeclado(std::function<void(const sf::Event&)> chamada) {
 
             ouvintesTeclado.emplace(proximoID, chamada);
@@ -76,7 +73,6 @@ namespace Jogo {
         void GerenciadorEventos::removerOuvinteTeclado(int id) {
             ouvintesMouse.erase(id);
         }
-
 
         unsigned int GerenciadorEventos::adicionarOuvinteOutro(std::function<void(const sf::Event&)> chamada) {
 

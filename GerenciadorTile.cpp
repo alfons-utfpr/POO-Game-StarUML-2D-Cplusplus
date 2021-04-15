@@ -1,10 +1,9 @@
 #include "GerenciadorTile.h"
 
 namespace Jogo {
-
     namespace Gerenciador {
         
-        GerenciadorTiles::GerenciadorTiles(std::vector<Tile::Tile*> Tiles /*= {}*/, Vetor::Vetor2F dimensoes /*= {0.0f, 0.0f}*/, const char* caminhoArquivo /*= nullptr*/) : tiles{ Tiles },
+        GerenciadorTiles::GerenciadorTiles(std::vector<Tile::Tile*> Tiles, Vetor::Vetor2F dimensoes, const char* caminhoArquivo) : tiles{ Tiles },
             dimensoesTiles{ dimensoes },
             caminho{ caminhoArquivo },
             tileMap{ caminhoArquivo }
@@ -58,7 +57,6 @@ namespace Jogo {
                         colisoes.push_back({ t->getId(), converterCoordenadasMapaParaTela({(unsigned int)j, (unsigned int)i}) , dimensoesTiles });
 
                     }
-
                 }
             return colisoes;
         }

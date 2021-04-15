@@ -28,19 +28,15 @@ namespace Jogo
 			esquerda2,
 			fundo,
 			fundo1,
-			//parede,
 			buracoInfinito,
 			personagem,
 			prisao,
-			
 			teste,
-			//teste_fundo,
 			teste_fundo2,
 			inimigo,
 			segundoHeroi,
 			chefao,
 			caixote,
-			//tux_from_linux
 
 		};
 	}

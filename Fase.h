@@ -1,16 +1,13 @@
 #pragma once
 #include "Estado.h"
 #include "Salvavel.h"
-
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
 #include "GerenciadorTile.h"
-
 #include "ListaDesenhaveis.h"
 #include "Desenhavel.h"
 #include "Heroi.h"
-
 #include "Relogio.h"
 
 namespace Jogo {
@@ -23,7 +20,7 @@ namespace Jogo {
             Gerenciador::GerenciadorEventos gerenciadorEventos;
             Gerenciador::GerenciadorColisoes gerenciadorColisoes;
             Gerenciador::GerenciadorTiles* gerenciadorTiles;
-            Relogio relogio; //vide cola
+            Relogio relogio; 
             Lista::ListaDesenhaveis listaAmigos;
 
         public:

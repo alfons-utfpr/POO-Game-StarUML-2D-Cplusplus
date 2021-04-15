@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
 #include <map>
 #include <functional>
 
@@ -10,13 +9,10 @@ namespace Jogo {
         private:
 
             static unsigned int proximoID;
-
             sf::RenderWindow* janela;
-
             std::map<unsigned int, std::function<void(const sf::Event&)>> ouvintesMouse;
             std::map<unsigned int, std::function<void(const sf::Event&)>> ouvintesTeclado;
             std::map<unsigned int, std::function<void(const sf::Event&)>> ouvintesOutros;
-
             sf::Event evento;
 
         public:

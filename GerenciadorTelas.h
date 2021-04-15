@@ -3,7 +3,6 @@
 #include "GerenciadorEstados.h"
 
 namespace Jogo {
-    
     class Heroi;
     enum CodigoRetorno {
         continuar,
@@ -12,6 +11,7 @@ namespace Jogo {
         comecarPrimeiraFase,
         comecarSegundaFase,
         comecarFaseFinal,
+        classificacao,
         carregarJogo,
         configuracoes,
         irMenuPrincipal,
@@ -19,13 +19,13 @@ namespace Jogo {
         sairMenuPausa,
         umJogador,
         doisJogadores,
-        ranking,
+        selecionarJogador,
+        
     };
 
     namespace Gerenciador {
         class GerenciadorGrafico;
         
-
         class GerenciadorTelas : public GerenciadorEstados {
         private:
             GerenciadorGrafico& gerenciadorGrafico;

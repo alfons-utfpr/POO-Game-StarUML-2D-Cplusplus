@@ -13,14 +13,12 @@ namespace Jogo {
         class GerenciadorColisoes;
 
         class GerenciadorTiles {
-
         public:
             typedef struct idpostam {
                 const Ids::Ids id;
                 const Vetor::Vetor2F posicao;
                 const Vetor::Vetor2F tamanho;
             } IdPosicaoTamanho;
-
 
         private:
             std::vector<Tile::Tile*> tiles;
