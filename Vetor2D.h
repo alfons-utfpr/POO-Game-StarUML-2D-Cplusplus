@@ -1,7 +1,5 @@
 #pragma once
-
 #include <ostream>
-
 #include "Serializavel.h"
 
 namespace Jogo {

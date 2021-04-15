@@ -1,13 +1,10 @@
 #pragma once
-
 #include "Vetor2D.h"
 
 namespace Jogo {
     namespace Tile {
         class TileMap {
-
         public:
-
             class LinhaTileMap {
             private:
                 const unsigned short* linha;
@@ -20,15 +17,12 @@ namespace Jogo {
 
             };
 
-
         private:
-
             Vetor::Vetor2U dimensoesMapa;
             unsigned short** mapa;
             const char* caminho;
 
         public:
-
             TileMap(const char* caminhoArquivo = nullptr);
             ~TileMap();
             const Vetor::Vetor2U getDimensoesMapa() const;
@@ -36,9 +30,7 @@ namespace Jogo {
             void setTile(Vetor::Vetor2U posicao, unsigned short novoIndice);
             const LinhaTileMap operator[](unsigned int i) const;
 
-
         private:
-
             void CarregarMapa();
 
         };

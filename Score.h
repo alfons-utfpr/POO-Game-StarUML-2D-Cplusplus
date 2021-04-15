@@ -5,9 +5,10 @@
 
 namespace Jogo {
 	namespace Menu {
-		class Score : public Menu
-		{
+		class Score : public Menu{
+		protected:
 			CampoTexto campoTexto;
+
 		public:
 			Score(Gerenciador::GerenciadorGrafico& GG);
 			int executar() override;

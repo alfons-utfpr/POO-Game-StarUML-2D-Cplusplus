@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Fase.h"
 #include"../Json/json.hpp"
 

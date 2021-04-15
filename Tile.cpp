@@ -1,10 +1,9 @@
 #include "Tile.h"
-
 #include <iostream>
 
 namespace Jogo {
     namespace Tile {
-        Tile::Tile(const Ids::Ids ID /*= Ids::semID*/, const char* caminhoArquivo /*= nullptr*/, Vetor::Vetor2F Tamanho /*= {32.0f, 32.0f}*/) :
+        Tile::Tile(const Ids::Ids ID, const char* caminhoArquivo, Vetor::Vetor2F Tamanho) :
             id{ ID }, caminho{ caminhoArquivo }, tamanho{ Tamanho } {
         }
 
@@ -17,7 +16,6 @@ namespace Jogo {
         }
 
         void Tile::desenhar(Gerenciador::GerenciadorGrafico& gg, const Vetor::Vetor2F posicao) const {
-            // std::cout << '\t' << '\t' << caminho << std::endl;
             gg.desenhar(caminho, posicao);
         }
 

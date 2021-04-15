@@ -7,7 +7,6 @@
 namespace Jogo {
     namespace Tile {
         class Tile {
-
         private:
             const Ids::Ids id;
             const char* caminho;
