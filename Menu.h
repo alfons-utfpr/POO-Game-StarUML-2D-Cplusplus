@@ -1,6 +1,5 @@
 #pragma once
 #include "Estado.h"
-
 #include "GerenciadorEventos.h"
 #include "GerenciadorBotoes.h"
 #include "GerenciadorGrafico.h"
@@ -9,7 +8,6 @@
 namespace Jogo {
     namespace Menu {
         class Menu : public Estado {
-
         private:
             int codigoRetorno;
 

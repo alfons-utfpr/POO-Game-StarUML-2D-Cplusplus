@@ -1,3 +1,5 @@
+#include "Lista.h"
+#include <fstream>
 #pragma once
 namespace Jogo {
     namespace Lista {
@@ -49,6 +51,20 @@ namespace Jogo {
         void Lista<TF>::ElementoLista<TE>::setProx(ElementoLista<TE>* Prox) {
             prox = Prox;
         }
+
+        /*template<typename TE>
+        template<typename TF>
+        void Lista<TF>::ElementoLista<TE>::setNome(const char* n)
+        {
+
+        }
+
+        template<typename TE>
+        template<typename TF>
+        char* Lista<TF>::ElementoLista<TE>::getNome()
+        {
+            return nome;
+        }*/
 
         template <typename TF>
         template <typename TE>
@@ -148,6 +164,62 @@ namespace Jogo {
                     return;
                 }
             }
+        }
+        template<typename TF>
+        inline bool Lista<TF>::gravarEmArquivo(char const* const arquivo)
+        {
+            bool gravavel = true;
+            if (NULL == arquivo || 0 == strcmp(arquivo, ""))
+                gravavel = false;
+
+            if (gravavel)
+            {
+                // recupera os elementos da lista;
+                TF* buffer = new TF[qntElementos];
+                ElementoLista<TF>* aux = inicio;
+                for (int i = 0; i < qntElementos; i++)
+                {
+                    buffer[i] = aux->getInfo();
+                    aux = aux->getProximo();
+                }
+
+                // tenta abrir o arquivo;
+                std::ofstream saida(arquivo, std::ios::binary | std::ios::out);
+                if (!saida)
+                    gravavel = false;
+
+                if (gravavel)
+                {	// grava;
+                    saida.write(reinterpret_cast<char*>(buffer), qntElementos * sizeof(TF));
+                }
+                saida.close();
+
+                delete[] buffer;
+            }
+
+            return gravavel;
+        }
+        template<typename TF>
+        inline bool Lista<TF>::recuperarDeArquivo(char const* const arquivo)
+        {
+            if (NULL == arquivo || 0 == strcmp(arquivo, ""))
+                return false;
+
+            // tenta abrir o arquivo;
+            std::ifstream entrada(arquivo, std::ios::binary | std::ios::in);
+            if (!entrada)
+                return false;
+
+            TF buffer;
+            // lê um por um dos elementos e insere na lista;
+            while (!entrada.eof())
+            {
+                entrada.read(reinterpret_cast<char*>(&buffer), sizeof(TF));
+                this->incluir(buffer);
+            }
+            entrada.close();
+
+            return true;
         }
     }
 }
