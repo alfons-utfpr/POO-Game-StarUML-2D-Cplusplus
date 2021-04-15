@@ -1,12 +1,8 @@
 #include "Principal.h"
-
 #include "Heroi.h"
-#include "Vilao.h"
+#include "Alien.h"
 #include "Tile.h"
-
 #include <iostream>
-
-
 
 namespace Jogo {
 
@@ -20,13 +16,11 @@ namespace Jogo {
     mas as chaves são mais estritas, impedindo que você faça conversões não explícitas, o que é mais eficiente e te dá um controle mais exato sobre o que está acontecendo
     */
 
-
     Principal::Principal() :
         jogador1{ Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(20.0f, 20.0f)) },
         gerenciadorTelas{ gerenciadorGrafico, &jogador1 },
         terminar{ false }
     {
-
 
     }
 
@@ -34,22 +28,13 @@ namespace Jogo {
 
     }
 
-
     int Principal::executar() {
-
-
         while (!terminar) {
 
             gerenciadorGrafico.limpar();
-            //substitui janela->clear();
-
             terminar = gerenciadorTelas.executar();
-
             gerenciadorGrafico.mostrar();
-            //substitui janela->display();
-
         }
-
         return 0;
     }
 

@@ -1,6 +1,4 @@
-#ifndef _PROMESSA_TEXTO_HPP_
-#define _PROMESSA_TEXTO_HPP_
-
+#pragma once
 #include <string>
 #include "GerenciadorEventos.h"
 
@@ -23,5 +21,3 @@ namespace Jogo {
         void adquirir(const sf::Event& e);
     };
 }
-
-#endif
