@@ -2,7 +2,7 @@
 
 namespace Jogo {
 
-    Colidivel::Colidivel(Vetor::Vetor2F pos /* = {0.0f, 0.0f}*/, Vetor::Vetor2F vel/* = {0.0f, 0.0f}*/, Ids::Ids ID  /*= Ids::semID*/, const char* caminhoTextura /* = nullptr*/) :
+    Colidivel::Colidivel(Vetor::Vetor2F pos, Vetor::Vetor2F vel, Ids::Ids ID, const char* caminhoTextura) :
         Desenhavel{ ID, pos, vel, caminhoTextura } {
 
     }

@@ -4,7 +4,7 @@
 
 namespace Jogo {
    // namespace Desenhaveis {
-        Desenhavel::Desenhavel(Ids::Ids ID /*= Ids::semID*/, Vetor::Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor::Vetor2F vel /*= {0.0f, 0.0f}*/, const char* caminhoTextura /*= nullptr*/) :
+        Desenhavel::Desenhavel(Ids::Ids ID, Vetor::Vetor2F pos, Vetor::Vetor2F vel, const char* caminhoTextura) :
             posicao{ pos }, v{ vel }, caminho{ caminhoTextura }, id{ ID } {
 
         }

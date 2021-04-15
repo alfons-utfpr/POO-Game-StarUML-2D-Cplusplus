@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Desenhavel.h"
 #include "Ids.h"
 #include "Vetor2D.h"

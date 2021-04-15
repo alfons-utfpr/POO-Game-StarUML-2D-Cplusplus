@@ -2,7 +2,7 @@
 
 namespace Jogo {
     namespace Menu {
-        Botao::Botao(Vetor::Vetor2F Posicao/* = {0.0f, 0.0f}*/, Vetor::Vetor2F Tamanho/* = {0.0f, 0.0f}*/, std::string Texto/* = ""*/, std::function<void(void)> QuandoApertado/* = std::function<void(void)>()*/, unsigned int tamTexto/* = 15U*/, Cor c/* = {128, 128, 128}*/) :
+        Botao::Botao(Vetor::Vetor2F Posicao, Vetor::Vetor2F Tamanho, std::string Texto, std::function<void(void)> QuandoApertado, unsigned int tamTexto, Cor c) :
             quandoApertado{ QuandoApertado }, posicao{ Posicao }, tamanho{ Tamanho }, cor{ c }, tamanhoTexto{ tamTexto }, texto{ Texto }  {}
 
         Botao::~Botao() {

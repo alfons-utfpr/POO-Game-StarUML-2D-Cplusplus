@@ -2,7 +2,6 @@
 #include "Vetor2D.h"
 #include "Cor.h"
 #include "GerenciadorGrafico.h"
-
 #include <string>
 #include <functional>
 

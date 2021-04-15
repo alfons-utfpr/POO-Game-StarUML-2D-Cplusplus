@@ -4,7 +4,6 @@
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
 #include "Ids.h"
-
 #include "Serializavel.h"
 
 namespace Jogo {

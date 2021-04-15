@@ -4,7 +4,7 @@
 
 namespace Jogo {
     namespace Desenhaveis {
-        Chefao::Chefao(Vetor::Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor::Vetor2F vel /*= {0.0f, 0.0f}*/) :
+        Chefao::Chefao(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
             Colidivel(pos, vel, Ids::vilao, "inimigo2.png") {
 
         }
