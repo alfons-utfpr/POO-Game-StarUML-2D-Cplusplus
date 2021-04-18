@@ -5,7 +5,7 @@
 
 namespace InvasaoAlienigena {
      namespace Desenhaveis {
-        class LagartoVerde : public Colidivel{
+        class LagartoVerde : public Inimigo {
         private:
 
             float vel_max_x;
