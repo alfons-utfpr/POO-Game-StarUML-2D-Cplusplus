@@ -2,12 +2,13 @@
 #include "Menu.h"
 #include "CampoTexto.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         class MenuJogador : public Menu {
         protected:
             bool imprimiu;
             CampoTexto campoTexto;
+            //bool doisJogadores;
 
         public:
             MenuJogador(Gerenciador::GerenciadorGrafico& GG);

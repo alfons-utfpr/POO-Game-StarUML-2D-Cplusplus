@@ -1,6 +1,6 @@
 #include "PromessaTexto.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     PromessaTexto::PromessaTexto(Gerenciador::GerenciadorEventos& GE, unsigned short comprimentoMax) :
         idOuvinteTeclado{ 0 },
         capturaIniciada{ false },

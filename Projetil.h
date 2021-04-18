@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 	class Projetil
 	{
 	private:

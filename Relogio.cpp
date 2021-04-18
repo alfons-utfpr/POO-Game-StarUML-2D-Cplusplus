@@ -1,7 +1,7 @@
 #include "Relogio.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     Relogio::Relogio() : ultimo{ clock() }, atual{ 0 }, dt{ 0 }, pausado{ false } {
     }
 

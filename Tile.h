@@ -4,7 +4,7 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Tile {
         class Tile {
         private:

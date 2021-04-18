@@ -1,7 +1,7 @@
 #pragma once
 #include "../Json/json.hpp"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Serializavel {
     public:
         virtual ~Serializavel();

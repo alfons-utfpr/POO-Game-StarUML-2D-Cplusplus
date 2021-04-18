@@ -2,7 +2,7 @@
 #include <string>
 #include "GerenciadorEventos.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class PromessaTexto {
     private:
         std::string texto;

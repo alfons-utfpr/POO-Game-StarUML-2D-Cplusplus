@@ -1,9 +1,7 @@
-#ifndef _RELOGIO_HPP_
-#define _RELOGIO_HPP_
-
+#pragma once
 #include <time.h>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Relogio {
     private:
         clock_t ultimo;
@@ -20,5 +18,4 @@ namespace Jogo {
 
     };
 }
-#endif
 

@@ -2,7 +2,7 @@
 #include "GerenciadorTelas.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 	namespace Menu {
         Score::Score(Gerenciador::GerenciadorGrafico& gg) : Menu{ gg },
             campoTexto{ ge, 15, {200.0f, 50.0f}, {200, 40} } {

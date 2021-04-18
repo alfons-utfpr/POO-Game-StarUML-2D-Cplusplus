@@ -3,7 +3,7 @@
 #include "CampoTexto.h"
 #include "GerenciadorGrafico.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         class MenuConfiguracoes : public Menu {
         protected:

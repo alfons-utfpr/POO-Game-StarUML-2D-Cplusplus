@@ -1,10 +1,10 @@
 #include "Principal.h"
-#include "Heroi.h"
+#include "Kahlo.h"
 #include "Alien.h"
 #include "Tile.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 
     /*
     listas de inicialização
@@ -17,7 +17,8 @@ namespace Jogo {
     */
 
     Principal::Principal() :
-        jogador1{ Entidades::Desenhaveis::Heroi(Vetor::Vetor2F(20.0f, 20.0f)) },
+        jogador1{ Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(20.0f, 20.0f)) },
+        jogador2{ Entidades::Desenhaveis::Frida(Vetor::Vetor2F(20.0f, 20.0f)) },
         gerenciadorTelas{ gerenciadorGrafico, &jogador1 },
         terminar{ false }
     {

@@ -1,11 +1,8 @@
 #include "Salvavel.h"
-
 #include "../Json/json.hpp"
 #include <fstream>
 
-
-namespace Jogo {
-
+namespace InvasaoAlienigena {
     Salvavel::~Salvavel() {
 
     }

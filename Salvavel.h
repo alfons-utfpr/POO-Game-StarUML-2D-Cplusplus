@@ -1,9 +1,7 @@
-#ifndef _SALVAVEL_HPP_
-#define _SALVAVEL_HPP_
-
+#pragma once
 #include "Serializavel.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Salvavel : public Serializavel {
     public:
         virtual ~Salvavel();
@@ -11,5 +9,3 @@ namespace Jogo {
         virtual void carregar(const std::string& caminho) = 0;
     };
 }
-
-#endif

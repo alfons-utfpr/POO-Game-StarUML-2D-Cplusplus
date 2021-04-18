@@ -1,14 +1,14 @@
 #pragma once
 
 #include "GerenciadorGrafico.h"
-#include "Heroi.h"
+#include "Kahlo.h"
 #include "GerenciadorTelas.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Principal {
     private:
         Gerenciador::GerenciadorGrafico gerenciadorGrafico;
-        Entidades::Desenhaveis::Heroi jogador1;
+        Entidades::Desenhaveis::Kahlo jogador1;
         Entidades::Desenhaveis::Frida jogador2;
         Gerenciador::GerenciadorTelas gerenciadorTelas;
         bool terminar;

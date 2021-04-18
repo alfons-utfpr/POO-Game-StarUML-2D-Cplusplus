@@ -1,7 +1,7 @@
 #include "Tile.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Tile {
         Tile::Tile(const Ids::Ids ID, const char* caminhoArquivo, Vetor::Vetor2F Tamanho) :
             id{ ID }, caminho{ caminhoArquivo }, tamanho{ Tamanho } {
