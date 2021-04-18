@@ -5,7 +5,7 @@
 #include "GerenciadorGrafico.h"
 
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         class Menu : public Estado {
         private:

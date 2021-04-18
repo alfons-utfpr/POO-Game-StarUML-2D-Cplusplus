@@ -1,11 +1,11 @@
 #include "Principal.h"
 #include <iostream>
 
-using namespace Jogo;
+using namespace InvasaoAlienigena;
 
 int main() {
 
-    Jogo::Principal principal;
+    InvasaoAlienigena::Principal principal;
 
     return principal.executar();
 }

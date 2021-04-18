@@ -2,7 +2,7 @@
 
 #include "GerenciadorTelas.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         Menu::Menu(Gerenciador::GerenciadorGrafico& GG) : codigoRetorno{ CodigoRetorno::continuar }, gb{ ge, GG }, gg{ GG } {
             gg.centralizar(gg.getTamanhoTela() * 0.5);

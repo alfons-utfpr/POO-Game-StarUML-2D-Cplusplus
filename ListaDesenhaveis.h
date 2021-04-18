@@ -6,7 +6,7 @@
 
 #include "../Json/json.hpp"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 
     class GerenciadorGrafico;
     class GerenciadorEventos;
