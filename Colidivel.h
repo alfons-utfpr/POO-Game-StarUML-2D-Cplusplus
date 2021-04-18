@@ -3,7 +3,7 @@
 #include "Ids.h"
 #include "Vetor2D.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 
     class Colidivel : public Desenhavel {
     public:

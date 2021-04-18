@@ -1,6 +1,6 @@
 #include "GerenciadorEstados.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         GerenciadorEstados::~GerenciadorEstados() {
             esvaziarPilha();

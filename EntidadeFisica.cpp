@@ -2,7 +2,7 @@
 #include "Vetor2D.h"
 
 
-namespace Jogo
+namespace InvasaoAlienigena
 {
 	namespace Entidades
 	{

@@ -5,7 +5,7 @@
 #include "Botao.h"
 #include <vector>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         class GerenciadorBotoes {
 

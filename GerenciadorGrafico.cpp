@@ -1,7 +1,7 @@
 #include "GerenciadorGrafico.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         GerenciadorGrafico::GerenciadorGrafico() :
             janela{ new sf::RenderWindow(sf::VideoMode(800, 600), "Game") },

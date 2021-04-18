@@ -1,6 +1,6 @@
 #include "Botao.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         Botao::Botao(Vetor::Vetor2F Posicao, Vetor::Vetor2F Tamanho, std::string Texto, std::function<void(void)> QuandoApertado, unsigned int tamTexto, Cor c) :
             quandoApertado{ QuandoApertado }, posicao{ Posicao }, tamanho{ Tamanho }, cor{ c }, tamanhoTexto{ tamTexto }, texto{ Texto }  {}

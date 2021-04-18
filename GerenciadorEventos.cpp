@@ -1,6 +1,6 @@
 #include "GerenciadorEventos.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         unsigned int GerenciadorEventos::proximoID{ 1 };
 

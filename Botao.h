@@ -6,7 +6,7 @@
 #include <functional>
 
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         class Botao {
         private:

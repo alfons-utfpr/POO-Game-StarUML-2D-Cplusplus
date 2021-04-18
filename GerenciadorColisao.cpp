@@ -4,7 +4,7 @@
 #include <math.h>
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         GerenciadorColisoes::GerenciadorColisoes() : gt{ nullptr } {
 

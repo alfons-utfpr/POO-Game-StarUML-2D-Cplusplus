@@ -6,7 +6,7 @@
 
 #include <set>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Colidivel;
     namespace Gerenciador {
         class GerenciadorColisoes {

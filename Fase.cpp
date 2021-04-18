@@ -3,9 +3,9 @@
 #include "Alien.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Fase {
-        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
+        Fase::Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Kahlo* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
             gerenciadorGrafico{ gg },
             jogador1{ jogador1 },
             jogador2{ jogador2 },

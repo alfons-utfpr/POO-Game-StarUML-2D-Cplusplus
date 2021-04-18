@@ -3,7 +3,7 @@
 #include <map>
 #include <functional>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador{
         class GerenciadorEventos {
         private:

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Jogo
+namespace InvasaoAlienigena
 {
 	class Estado
 	{

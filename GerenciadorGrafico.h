@@ -5,7 +5,7 @@
 #include "Vetor2D.h"
 #include "Cor.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         class GerenciadorGrafico {
         private:

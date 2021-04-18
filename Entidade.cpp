@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-namespace Jogo
+namespace InvasaoAlienigena
 {
 	namespace Entidades
 	{

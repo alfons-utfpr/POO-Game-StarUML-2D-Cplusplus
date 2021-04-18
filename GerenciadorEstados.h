@@ -2,7 +2,7 @@
 #include "Estado.h"
 #include <stack>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         class GerenciadorEstados {
         private:

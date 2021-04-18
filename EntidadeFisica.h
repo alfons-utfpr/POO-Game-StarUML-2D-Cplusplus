@@ -4,7 +4,7 @@
 #include "Ids.h"
 #include <string>
 
-namespace Jogo
+namespace InvasaoAlienigena
 {
 	namespace Entidades
 	{

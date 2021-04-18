@@ -7,16 +7,16 @@
 #include "GerenciadorTile.h"
 #include "ListaDesenhaveis.h"
 #include "Desenhavel.h"
-#include "Heroi.h"
+#include "Kahlo.h"
 #include "Frida.h"
 #include "Relogio.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Fase {
         class Fase : public Estado, public Salvavel {
         protected:
             Gerenciador::GerenciadorGrafico& gerenciadorGrafico;
-            Entidades::Desenhaveis::Heroi* jogador1;
+            Entidades::Desenhaveis::Kahlo* jogador1;
             Entidades::Desenhaveis::Frida* jogador2;
             Gerenciador::GerenciadorEventos gerenciadorEventos;
             Gerenciador::GerenciadorColisoes gerenciadorColisoes;
@@ -26,7 +26,7 @@ namespace Jogo {
 
 
         public:
-            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
+            Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Kahlo* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
             ~Fase();
             int executar() override;

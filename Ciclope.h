@@ -2,7 +2,7 @@
 #include "Colidivel.h"
 #include "Ids.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Desenhaveis {
         class Ciclope : public Colidivel {
         private:

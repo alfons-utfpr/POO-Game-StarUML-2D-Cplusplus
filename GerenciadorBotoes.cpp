@@ -1,9 +1,9 @@
 #include "GerenciadorBotoes.h"
-
 #include <math.h>
-namespace Jogo {
+
+namespace InvasaoAlienigena {
     namespace Gerenciador {
-        GerenciadorBotoes::GerenciadorBotoes(GerenciadorEventos& GE, GerenciadorGrafico& GG, std::vector<Menu::Botao*> Botoes/* = {}*/) : botoes{ Botoes }, ge{ GE }, gg{ GG } {
+        GerenciadorBotoes::GerenciadorBotoes(GerenciadorEventos& GE, GerenciadorGrafico& GG, std::vector<Menu::Botao*> Botoes) : botoes{ Botoes }, ge{ GE }, gg{ GG } {
 
             idOuvinteMouse = ge.adicionarOuvinteMouse([this](const sf::Event& e) {ouvinteMouse(e); });
         }
