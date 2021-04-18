@@ -9,9 +9,9 @@
 #include "MenuConfiguracoes.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
-        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
+        GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Kahlo* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
             gerenciadorGrafico{ gg }, jogador1{ jogador1 }, jogador2{ jogador2 } {
             push(new Menu::MenuPrincipal(gerenciadorGrafico));
         }
@@ -43,7 +43,8 @@ namespace Jogo {
             {
                 if (umJogador)
                 {
-                    Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1, 0);
+
+                    Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1);
                     fase->inicializar();
                     push(fase);
                     return false;

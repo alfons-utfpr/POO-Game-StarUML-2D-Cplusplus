@@ -1,10 +1,11 @@
 #pragma once
+#include "Inimigo.h"
 #include "Colidivel.h"
 #include "Ids.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
      namespace Desenhaveis {
-        class LagartoVerde : public Colidivel {
+        class LagartoVerde : public Colidivel{
         private:
 
             float vel_max_x;

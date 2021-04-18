@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Desenhaveis {
         Ciclope::Ciclope(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::vilao, "inimigo2.png") {
+            Colidivel(pos, vel, Ids::ciclope, "inimigo2.png") {
 
         }
 
@@ -26,7 +26,7 @@ namespace Jogo {
         }
 
         void Ciclope::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
-            if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::frida) {
+            if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::frida || idOutro == Ids::caixote) {
                 Vetor::Vetor2F dist = posicao - posicaoOutro;
                 float sobr_x = std::abs(dist.x) - (dimensoes.x + dimensoesOutro.x) * 0.5;
                 float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;

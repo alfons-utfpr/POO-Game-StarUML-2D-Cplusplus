@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Jogo
+namespace InvasaoAlienigena
 {
 	namespace Ids
 	{
@@ -8,8 +8,8 @@ namespace Jogo
 		{
 			teste_chama,
 			porta,
-			heroi,
-			vilao,
+			kahlo,
+			lagartoVerde,
 			armadilha,
 			fimDaFase,
 			parede_up,
@@ -33,9 +33,9 @@ namespace Jogo
 			prisao,
 			teste,
 			teste_fundo2,
-			inimigo,
+			alien,
 			segundoHeroi,
-			chefao,
+			ciclope,
 			caixote,
 			frida,
 

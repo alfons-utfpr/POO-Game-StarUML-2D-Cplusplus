@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         CampoTexto::CampoTexto(Gerenciador::GerenciadorEventos& ge, unsigned short comprimentoMaximo, Vetor::Vetor2F Posicao,
             Vetor::Vetor2F Tamanho, unsigned int tamTexto, Cor c) :
@@ -31,6 +31,15 @@ namespace Jogo {
         void CampoTexto::iniciarCaptura() {
             promessa.comecar();
         }
+
+        void CampoTexto::terminarCaptura() {
+            
+            sf::Event::KeyPressed;
+            if (sf::Keyboard::Key::KeyCount)
+                promessa.getTextoPronto();
+            
+        }
+
         void CampoTexto::Score(const int score, const std::string nome)
         {
             

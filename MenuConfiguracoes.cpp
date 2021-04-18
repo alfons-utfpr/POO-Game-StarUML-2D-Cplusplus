@@ -2,13 +2,14 @@
 #include "GerenciadorTelas.h"
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Menu {
         MenuConfiguracoes::MenuConfiguracoes(Gerenciador::GerenciadorGrafico& gg) : Menu{ gg }, imprimiu{ false },
             campoTexto{ ge, 15, {200.0f, 50.0f}, {200, 40} } {
             gb.adicionarBotao(new Botao({ 200.0f, 110.0f }, { 100, 50 }, "Primeira Fase", [this] {setCodigoRetorno(comecarPrimeiraFase); }));
             gb.adicionarBotao(new Botao({ 200.0f, 170.0f }, { 100, 50 }, "Fase Final", [this] {setCodigoRetorno(comecarSegundaFase); }));
-            gb.adicionarBotao(new Botao({ 200.0f, 230.0f }, { 100, 50 }, "Menu principal", [this] {setCodigoRetorno(irMenuPrincipal); }));
+            gb.adicionarBotao(new Botao({ 100.0f, 230.0f }, { 100, 50 }, "Menu principal", [this] {setCodigoRetorno(irMenuPrincipal); }));
+            gb.adicionarBotao(new Botao({ 300.0f, 230.0f }, { 100, 50 }, "Voltar", [this] {setCodigoRetorno(selecionarJogador); }));
             //gb.adicionarBotao(&campoTexto);
         }
 

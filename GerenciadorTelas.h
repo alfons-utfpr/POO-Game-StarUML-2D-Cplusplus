@@ -1,9 +1,10 @@
 #pragma once
-#include "Heroi.h"
+#include "Kahlo.h"
 #include "Frida.h"
 #include "GerenciadorEstados.h"
+#include "CampoTexto.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     class Heroi;
     enum CodigoRetorno {
         continuar,
@@ -22,6 +23,7 @@ namespace Jogo {
         doisJogadores,
         selecionarJogador,
         fimDeJogo,
+        nome,
         
     };
 
@@ -31,13 +33,13 @@ namespace Jogo {
         class GerenciadorTelas : public GerenciadorEstados {
         private:
             GerenciadorGrafico& gerenciadorGrafico;
-            Entidades::Desenhaveis::Heroi* jogador1;
+            Entidades::Desenhaveis::Kahlo* jogador1;
             Entidades::Desenhaveis::Frida* jogador2;
 
         public:
-            GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
+            GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Kahlo* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
             //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
-        protected:
+        //protected:
             bool processarCodigo(int codigoRetorno) override;
 
         };

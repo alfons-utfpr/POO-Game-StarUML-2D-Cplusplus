@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Desenhaveis {
-        Alien::Alien(Vetor::Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor::Vetor2F vel /*= {0.0f, 0.0f}*/) :
-            Colidivel(pos, vel, Ids::vilao, "../imagens/inimigo6.png") {
+        Alien::Alien(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
+            Colidivel(pos, vel, Ids::alien, "../imagens/inimigo6.png") {
 
         }
 
@@ -27,7 +27,7 @@ namespace Jogo {
 
         void Alien::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
 
-            if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara) {
+            if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::caixote) {
                 Vetor::Vetor2F dist = posicao - posicaoOutro;
                 float sobr_x = std::abs(dist.x) - (dimensoes.x + dimensoesOutro.x) * 0.5;
                 float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
@@ -35,44 +35,9 @@ namespace Jogo {
                     posicao.x += (dist.x > 0 ? -1 : 1) * sobr_x;
                 }
                 else {
-                    posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
+                    posicao.x -= (dist.y > 0 ? -1 : 1) * sobr_y;
                 }
             }
-            
-
-            /*if (idOutro == Ids::heroi) {
-                std::cout << std::endl;
-
-            }
-            else if (idOutro == Ids::vilao) {
-
-                Vetor::Vetor2F distancia = posicao - posicaoOutro;
-
-                posicao += distancia * (1 / 2);
-
-                v.x *= -1;
-                v.y *= -1;
-            }
-            else if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara)
-            {
-                Vetor::Vetor2F distancia = posicao - posicaoOutro;
-
-                posicao += distancia * (1 / 2);
-
-                v.x *= -1;
-            }
-            else if (idOutro == Ids::parede_up)
-            {
-                Vetor::Vetor2F distancia = posicao - posicaoOutro;
-
-                posicao -= distancia * (1 / 2);
-
-                v.x *= -1;
-            }
-            else if (idOutro == Ids::parede_clara)
-            {
-
-            }*/
         }
     }
 }
