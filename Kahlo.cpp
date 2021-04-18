@@ -7,7 +7,8 @@
 namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
-            Kahlo::Kahlo(Vetor::Vetor2F pos) : Colidivel(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/heroi1.png") {
+            Kahlo::Kahlo(Vetor::Vetor2F pos) : 
+                Jogador(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/heroi1.png") {
                 vel_x = 80;
                 vel_y = 80;
                 vidas = 3;

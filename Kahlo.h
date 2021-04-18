@@ -1,7 +1,7 @@
 #pragma once
 #include "Vetor2D.h"
 #include "Colidivel.h"
-//#include ""
+#include "Jogador.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
@@ -13,7 +13,7 @@ namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
 
-            class Kahlo : public Colidivel {
+            class Kahlo: public Jogador{
             private:
                 float vel_x;
                 float vel_y;

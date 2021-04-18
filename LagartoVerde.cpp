@@ -4,7 +4,7 @@
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
         LagartoVerde::LagartoVerde(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::lagartoVerde, "../imagens/inimigo5.png") {
+            Inimigo(pos, vel, Ids::lagartoVerde, "../imagens/inimigo5.png") {
 
         }
 
