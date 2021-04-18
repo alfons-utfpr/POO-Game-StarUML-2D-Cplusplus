@@ -1,10 +1,11 @@
 #pragma once
+#include "Inimigo.h"
 #include "Colidivel.h"
 #include "Ids.h"
 
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
-        class Alien : public Colidivel {
+        class Alien : public Inimigo {
         private:
             Vetor::Vetor2F ajustes;
         public:

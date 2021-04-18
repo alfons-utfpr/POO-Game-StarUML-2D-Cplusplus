@@ -4,7 +4,7 @@
 namespace InvasaoAlienigena {
     namespace Obstaculo {
         Caixote::Caixote(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::caixote, "../imagens/caixote.png") {
+            Obstaculo(pos, vel, Ids::caixote, "../imagens/caixote.png") {
 
         }
 
@@ -46,6 +46,7 @@ namespace InvasaoAlienigena {
                 }
                 else {
                     posicao.x -= (dist.x > 0 ? -1 : 1) * sobr_x;
+                    posicao.y -= (dist.x > 0 ? -1 : 1) * sobr_y;
                 }
             }
         }

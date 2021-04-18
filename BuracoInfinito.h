@@ -1,10 +1,10 @@
 #pragma once
-#include "Colidivel.h"
+#include "Obstaculo.h"
 #include "Ids.h"
 
 namespace InvasaoAlienigena {
 	namespace Obstaculo {
-		class BuracoInfinito : public Colidivel {
+		class BuracoInfinito : public Obstaculo {
 		private:
 			Vetor::Vetor2F ajustes;
 

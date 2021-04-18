@@ -1,12 +1,12 @@
 #pragma once
-#include "Colidivel.h"
+#include "Obstaculo.h"
 #include "Ids.h"
 
 namespace InvasaoAlienigena {
 	namespace Obstaculo {
-		class Caixote : public Colidivel{
+		class Caixote : public Obstaculo{
 		private:
-			Vetor::Vetor2F ajustes;
+			int vel_x;
 
 		public:
 			Caixote(Vetor::Vetor2F pos = { 0.0f, 0.0f }, Vetor::Vetor2F vel = { 0.0f, 0.0f });

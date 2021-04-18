@@ -1,11 +1,15 @@
 #pragma once
-#include "Colidivel.h"
+//#include "Colidivel.h"
+#include "Inimigo.h"
 #include "Ids.h"
 
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
-        class Ciclope : public Colidivel {
+        class Ciclope : public Inimigo{
         private:
+            float vel_max_x;
+            float vel_max_y;
+            Vetor::Vetor2F ajustes;
 
         public:
 

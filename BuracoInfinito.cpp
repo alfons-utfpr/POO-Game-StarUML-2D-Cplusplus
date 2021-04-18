@@ -4,7 +4,7 @@
 namespace InvasaoAlienigena {
     namespace Obstaculo {
         BuracoInfinito::BuracoInfinito(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::caixote, "../imagens/buraco_negro.png") {
+            Obstaculo(pos, vel, Ids::caixote, "../imagens/buraco_negro.png") {
 
         }
 

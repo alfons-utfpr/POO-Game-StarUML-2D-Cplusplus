@@ -5,7 +5,7 @@
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
         Ciclope::Ciclope(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::ciclope, "inimigo2.png") {
+            Inimigo(pos, vel, Ids::ciclope, "inimigo2.png") {
 
         }
 

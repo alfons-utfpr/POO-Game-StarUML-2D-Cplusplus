@@ -5,7 +5,7 @@
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
         Alien::Alien(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Colidivel(pos, vel, Ids::alien, "../imagens/inimigo6.png") {
+            Inimigo(pos, vel, Ids::alien, "../imagens/inimigo6.png") {
 
         }
 
