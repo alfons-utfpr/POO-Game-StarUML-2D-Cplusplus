@@ -2,17 +2,15 @@
 #include "Colidivel.h"
 #include "Ids.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
 	namespace Obstaculo {
-		class Obstaculo: public Colidivel
-		{
+		class Obstaculo : public Colidivel {
+		private:
+
 		public:
-			Obstaculo(Vetor::Vetor2F pos = { 0.0f, 0.0f }, Vetor::Vetor2F vel = { 0.0f, 0.0f });
-			Obstaculo(nlohmann::json fonte);
+			Obstaculo(Vetor::Vetor2F pos = { 0.0f, 0.0f }, Vetor::Vetor2F vel = { 0.0f, 0.0f }, Ids::Ids ID = Ids::semID, const char* caminhoTextura = nullptr);
 			~Obstaculo();
 			void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
-			void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
 		};
 	}
 }
-
