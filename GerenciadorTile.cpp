@@ -1,6 +1,6 @@
 #include "GerenciadorTile.h"
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         
         GerenciadorTiles::GerenciadorTiles(std::vector<Tile::Tile*> Tiles, Vetor::Vetor2F dimensoes, const char* caminhoArquivo) : tiles{ Tiles },

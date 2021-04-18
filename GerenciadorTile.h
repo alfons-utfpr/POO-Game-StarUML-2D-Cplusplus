@@ -6,7 +6,7 @@
 
 #include <vector>
 
-namespace Jogo {
+namespace InvasaoAlienigena {
     namespace Gerenciador {
         class GerenciadorEventos;
         class GerenciadorGrafico;
