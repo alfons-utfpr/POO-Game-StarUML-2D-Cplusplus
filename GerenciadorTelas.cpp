@@ -12,7 +12,7 @@
 namespace InvasaoAlienigena {
     namespace Gerenciador {
         GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Kahlo* jogador1, Entidades::Desenhaveis::Frida* jogador2) :
-            gerenciadorGrafico{ gg }, jogador1{ jogador1 }, jogador2{ jogador2 } {
+            gerenciadorGrafico{ gg }, jogador1{ jogador1 }, jogador2{ jogador2 } , multiplosJogadores(false){
             push(new Menu::MenuPrincipal(gerenciadorGrafico));
         }
 
@@ -29,27 +29,28 @@ namespace InvasaoAlienigena {
 
             case umJogador:
             {
+                multiplosJogadores = false;
                 push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
                 return false;
             }
 
             case doisJogadores:
             {
+                multiplosJogadores = true;
                 push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
                 return false;
             }
 
             case comecarSegundaFase:
             {
-                if (umJogador)
+                if (!multiplosJogadores)
                 {
-
                     Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1);
                     fase->inicializar();
                     push(fase);
                     return false;
                 }
-                else if (umJogador && doisJogadores)
+                else
                 {
                     Fase::Hospital* fase = new Fase::Hospital(gerenciadorGrafico, jogador1, jogador2);
                     fase->inicializar();
@@ -109,14 +110,14 @@ namespace InvasaoAlienigena {
                 return false;
 
             case comecarPrimeiraFase:
-                if (umJogador)
+                if (!multiplosJogadores)
                 {
-                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, 0);
+                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1);
                     fase->inicializar();
                     push(fase);
                     return false;
                 }
-                else if (umJogador && doisJogadores)
+                else 
                 {
                     Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
                     fase->inicializar();

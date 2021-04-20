@@ -64,18 +64,12 @@ namespace InvasaoAlienigena {
                 switch (static_cast<int> (amigo["id"]))
                 {
                 case Ids::kahlo:
-                    if (jogador1) {
                         jogador1->inicializarComJSON(amigo);
                         listaAmigos.inserir(jogador1);
-                    }
                     break;
-                case Ids::frida && Ids::frida:
-                    if (jogador1 && jogador2) {
-                        jogador1->inicializarComJSON(amigo);
+                case Ids::frida:
                         jogador2->inicializarComJSON(amigo);
-                        listaAmigos.inserir(jogador1);
                         listaAmigos.inserir(jogador2);
-                    }
                 case Ids::alien:
                     listaAmigos.inserir(new Desenhaveis::Alien(amigo));
                     break;
@@ -93,13 +87,10 @@ namespace InvasaoAlienigena {
         void Manicomio::inicializar() {
             srand(time(NULL));
             
-            if (jogador1) listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(70.0f, 100.0f)));
+            listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(70.0f, 120.0f)));
             
-            else if (jogador1 && jogador2)
-            {
-                listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(40.0f, 50.0f)));
-                listaAmigos.inserir(new Entidades::Desenhaveis::Frida(Vetor::Vetor2F(50.0f, 50.f)));
-            }
+            if(jogador2)
+                listaAmigos.inserir(new Entidades::Desenhaveis::Frida(Vetor::Vetor2F(110.0f, 120.0f)));
 
             for (int i = 0; i < 10; i++) {
                 

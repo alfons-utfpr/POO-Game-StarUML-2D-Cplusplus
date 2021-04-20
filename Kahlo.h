@@ -1,5 +1,6 @@
 #pragma once
 #include "Vetor2D.h"
+#include "Estado.h"
 #include "Colidivel.h"
 #include "Jogador.h"
 #include "GerenciadorGrafico.h"
@@ -12,6 +13,7 @@
 namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
+            //class GerenciadorEstado;
 
             class Kahlo: public Jogador{
             private:
@@ -29,7 +31,7 @@ namespace InvasaoAlienigena {
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
-                void tratarEvento(const sf::Event& e);
+                void tratarEvento(const sf::Event& f);
                 void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
                 void inicializarComJSON(nlohmann::json fonte);
                 void ajustar();

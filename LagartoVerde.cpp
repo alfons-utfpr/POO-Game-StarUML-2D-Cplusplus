@@ -4,7 +4,8 @@
 namespace InvasaoAlienigena {
     namespace Desenhaveis {
         LagartoVerde::LagartoVerde(Vetor::Vetor2F pos, Vetor::Vetor2F vel) :
-            Inimigo(pos, vel, Ids::lagartoVerde, "../imagens/inimigo5.png") {
+            Inimigo(pos, vel, Ids::lagartoVerde, "../imagens/inimigo5.png"){
+            projeteis = 5;
 
         }
 
@@ -14,6 +15,12 @@ namespace InvasaoAlienigena {
 
         LagartoVerde::~LagartoVerde() {
 
+        }
+
+        void LagartoVerde::atualizar(float t) {
+            for (int i = 0; i < projeteis; i++) {
+               new Projetil::Projetil({ 0.0f, 0.0f },{ 30.0f, 0.0f }, Ids::projetil, "imagens/projetil.png");
+            }
         }
 
         void LagartoVerde::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {

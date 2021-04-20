@@ -53,7 +53,7 @@ namespace InvasaoAlienigena {
                     v.y = vel_y * (v.y > 0 ? 1 : -1);
                 }*/
 
-                posicao += v * t;
+                posicao += v1 * t;
             }
 
             void Kahlo::desenhar(Gerenciador::GerenciadorGrafico& g) {
@@ -66,44 +66,44 @@ namespace InvasaoAlienigena {
                 posicao = { fonte["posicao"] };
             }
 
-            void Kahlo::tratarEvento(const sf::Event& e) {
-                if (e.type == sf::Event::KeyPressed) {
+            void Kahlo::tratarEvento(const sf::Event& f) {
+                if (f.type == sf::Event::KeyPressed) {
 
 
-                    switch (e.key.code) {
+                    switch (f.key.code) {
                     case sf::Keyboard::Key::Right:
-                        v.x += vel_x;
+                        v1.x += vel_x;
                         break;
                     case sf::Keyboard::Key::Left:
-                        v.x -= vel_x;
+                        v1.x -= vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        v.y -= vel_y;
+                        v1.y -= vel_y;
                         break;
                     case sf::Keyboard::Key::Down:
-                        v.y += vel_y;
+                        v1.y += vel_y;
                         break;
                     default:
                         break;
                     }
                 }
-                else if (e.type == sf::Event::KeyReleased) {
-                    switch (e.key.code) {
+                else if (f.type == sf::Event::KeyReleased) {
+                    switch (f.key.code) {
                     case sf::Keyboard::Key::Right:
-                        v.x -= vel_x;
+                        v1.x -= vel_x;
                         break;
                     case sf::Keyboard::Key::Left:
-                        v.x += vel_x;
+                        v1.x += vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        v.y += vel_y;
+                        v1.y += vel_y;
                         /*if (!isJumping) {
                             isJumping = true;
                             vel_y -= 0.2 * vel_y;
                         }*/
                         break;
                     case sf::Keyboard::Key::Down:
-                        v.y -= vel_x;
+                        v1.y -= vel_x;
                         break;
                     default:
                         break;
@@ -126,7 +126,7 @@ namespace InvasaoAlienigena {
                     }
                 }
 
-                else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde ) {
+                else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde || idOutro == Ids::ciclope) {
                     vidas--;
                     if (vidas == 0)
                     {   
@@ -146,11 +146,15 @@ namespace InvasaoAlienigena {
                 }
 
                 else if (idOutro == Ids::buracoInfinito) {
-                    //a fazer
+                    //bool Gerenciador::GerenciadorTelas::processarCodigo(int codigoRetorno);
+                    //bool Gerenciador::GerenciadorEstados::executar();
+                    
                 }
 
                 else if (idOutro == Ids::porta)
                 {
+                    //finalFase();
+                    //Estado::Fase(false);
                    // Gerenciador::GerenciadorTelas::processarCodigo(comecarSegundaFase);
                 }
             }
@@ -162,10 +166,10 @@ namespace InvasaoAlienigena {
                 if (ajustes.y < 0) {
                     isJumping = false;
                     //v.x = 0;
-                    v.y = 0;
+                    v1.y = 0;
                 }
                 else if (ajustes.y > 0) {
-                    v.y = 0;
+                    v1.y = 0;
                 }
                 //Entidades::EntidadeFisica::ajustar();
             }

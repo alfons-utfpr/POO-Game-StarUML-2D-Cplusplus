@@ -13,19 +13,31 @@ namespace InvasaoAlienigena {
             IdOuvinteFecharTela{ gerenciadorEventos.adicionarOuvinteOutro([this](const sf::Event& e) {botaoFecharTelaApertado(e); }) },
             IdOuvinteEntrarMenu{ gerenciadorEventos.adicionarOuvinteTeclado([this](const sf::Event& e) {botaoEntrarMenuApertado(e); }) },
             codigoRetorno{ continuar }
+            //continuar{true}
         {
 
             gerenciadorTiles->inicializar(gerenciadorGrafico, gerenciadorEventos);
             gerenciadorEventos.setJanela(gerenciadorGrafico.getJanela());
             gerenciadorColisoes.setGerenciadorTiles(gerenciadorTiles);
             pontos = 0;
+            this->initTexturas();
         }
 
         Fase::~Fase() {
             listaAmigos.removerPrimeiro(jogador1);
             listaAmigos.removerPrimeiro(jogador2);
             listaAmigos.destruirDesenhaveis();
+            //listaAmigos.removerPrimeiro(projeteis);
             delete gerenciadorTiles;
+            //delete &projeteis;
+
+            /*for (auto &i : this->textura) {
+                delete i.second;
+            }
+
+            for (auto *i : this->textura) {
+                delete i;
+            }*/
         }
 
         int Fase::executar() {
@@ -39,8 +51,15 @@ namespace InvasaoAlienigena {
             gerenciadorTiles->desenhar(gerenciadorGrafico);
             listaAmigos.desenharDesenhaveis(gerenciadorGrafico);
 
+            //this->atualizarProjetil();
+
             return codigoRetorno;
         }
+
+       /* void Fase::finalFase()
+        {
+            continuar = false;
+        }*/
 
         void Fase::botaoFecharTelaApertado(const sf::Event evento) {
             if (evento.type == sf::Event::Closed) setCodigoRetorno(terminarJogo);
@@ -59,6 +78,12 @@ namespace InvasaoAlienigena {
                 std::cout << "Erro na fonte" << std::endl;
             }
         }
+
+		void Fase::initTexturas()
+		{
+            //this->textura["BULLET"] new sf::Texture();
+            //this->textura["BULLET"].loadFromFile("imagens/projetil.png");
+		}
 
         void Fase::setCodigoRetorno(int codigo) {
             codigoRetorno = codigo;

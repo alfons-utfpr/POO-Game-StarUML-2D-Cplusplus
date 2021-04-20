@@ -2,12 +2,13 @@
 
 namespace InvasaoAlienigena
 {
-	class Estado
+	class Estado 
 	{
 	public:
+		
 		virtual ~Estado();
 		virtual int executar() = 0;
 
 	};
-
+	
 }

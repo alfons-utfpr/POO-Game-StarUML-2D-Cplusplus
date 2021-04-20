@@ -19,7 +19,7 @@ namespace InvasaoAlienigena {
     Principal::Principal() :
         jogador1{ Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(20.0f, 20.0f)) },
         jogador2{ Entidades::Desenhaveis::Frida(Vetor::Vetor2F(20.0f, 20.0f)) },
-        gerenciadorTelas{ gerenciadorGrafico, &jogador1 },
+        gerenciadorTelas{ gerenciadorGrafico, &jogador1, &jogador2 },
         terminar{ false }
     {
 

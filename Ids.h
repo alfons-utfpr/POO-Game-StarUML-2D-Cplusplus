@@ -38,6 +38,7 @@ namespace InvasaoAlienigena
 			ciclope,
 			caixote,
 			frida,
+			projetil,
 
 		};
 	}

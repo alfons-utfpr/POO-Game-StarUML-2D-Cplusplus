@@ -16,6 +16,7 @@ namespace InvasaoAlienigena {
         int MenuPrincipal::executar() {
             
             int ret = Menu::executar();
+            //gg.desenharTexto(texto, posicao, tamanhoTexto);
             gb.adicionarBotao(new Botao({ 200.0f, 50.0f }, { 200.0f }, "INVASÃO ALIENIGENA "));
 
             /*if (!imprimiu && campoTexto.getTextoPronto()) {

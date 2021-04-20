@@ -1,42 +1,56 @@
 #include "Projetil.h"
 namespace InvasaoAlienigena {
-	Projetil::Projetil(sf::Vector2f size)
-	{
-	}
+	namespace Projetil {
+		Projetil::Projetil(Vetor::Vetor2F pos, Vetor::Vetor2F vel, Ids::Ids ID, const char* caminhoTextura) :
+			Colidivel(pos, vel, Ids::projetil, "../imagens/projetil.png")
+		{
 
-	Projetil::Projetil()
-	{
-	}
+		}
 
-	Projetil::~Projetil()
-	{
-	}
+		Projetil::Projetil(nlohmann::json fonte) : Projetil({ fonte["posicao"] }, { fonte["velocidade"] }) {
 
-	void Projetil::fire(int speed)
-	{
-	}
+		}
 
-	void Projetil::desenhar(sf::RenderWindow& window)
-	{
-	}
+		Projetil::Projetil()
+		{
+		}
 
-	int Projetil::getDireita()
-	{
-		return 0;
-	}
+		Projetil::~Projetil()
+		{
+		}
 
-	int Projetil::getEsquerda()
-	{
-		return 0;
-	}
+		/*const sf::FloatRect Projetil::getLimites() const
+		{
+			return this->projetil.getGlobalBounds();
+		}*/
 
-	int Projetil::getCima()
-	{
-		return 0;
-	}
+		void Projetil::atualizar(float t)
+		{
+			posicao += v1 * t;
+		}
 
-	int Projetil::getBaixo()
-	{
-		return 0;
+		void Projetil::desenhar(Gerenciador::GerenciadorGrafico& g)
+		{
+			g.desenhar(caminho, posicao);
+			g.centralizar(posicao);
+		}
+
+		/*void Projetil::render(sf::RenderTarget* alvo)
+		{
+			alvo->draw(this->projetil);
+		}*/
+
+		void Projetil::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
+			gf.carregarTextura(caminho);
+
+			dimensoes = gf.getTamanho(caminho);
+
+			gc.adicionarColidivel(this);
+		}
+
+		void Projetil::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
+
+
+		}
 	}
 }

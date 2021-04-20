@@ -4,7 +4,6 @@
 #include "GerenciadorBotoes.h"
 #include "GerenciadorGrafico.h"
 
-
 namespace InvasaoAlienigena {
     namespace Menu {
         class Menu : public Estado {

@@ -10,6 +10,7 @@
 #include "Kahlo.h"
 #include "Frida.h"
 #include "Relogio.h"
+#include "Projetil.h"
 
 namespace InvasaoAlienigena {
     namespace Fase {
@@ -23,6 +24,8 @@ namespace InvasaoAlienigena {
             Gerenciador::GerenciadorTiles* gerenciadorTiles;
             Relogio relogio; 
             Lista::ListaDesenhaveis listaAmigos;
+            //bool continuar;
+            
 
 
         public:
@@ -31,6 +34,8 @@ namespace InvasaoAlienigena {
             ~Fase();
             int executar() override;
             virtual void inicializar() = 0;
+            //void atualizarProjetil();
+            //void finalFase();
 
         private:
             unsigned int IdOuvinteFecharTela;
@@ -40,8 +45,11 @@ namespace InvasaoAlienigena {
             int pontos;
             sf::Font font;
             sf::Text texto;
+            //std::map<std::string, sf::Texture> textura;
+            //std::vector<Projetil*> projeteis;
 
             void initFont();
+            void initTexturas();
 
         protected:
             void setCodigoRetorno(int codigo);

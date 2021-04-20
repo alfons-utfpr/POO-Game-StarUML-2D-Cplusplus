@@ -35,6 +35,8 @@ namespace InvasaoAlienigena {
             GerenciadorGrafico& gerenciadorGrafico;
             Entidades::Desenhaveis::Kahlo* jogador1;
             Entidades::Desenhaveis::Frida* jogador2;
+            bool multiplosJogadores;
+            //Projetil::Projetil proj;
 
         public:
             GerenciadorTelas(GerenciadorGrafico& gg, Entidades::Desenhaveis::Kahlo* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
