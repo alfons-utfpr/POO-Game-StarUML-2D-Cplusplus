@@ -72,6 +72,23 @@ namespace InvasaoAlienigena {
             return { mapa[i], dimensoesMapa.x };
         }
 
+        void TileMap::salvarMapa(const char* caminhoArquivo)
+        {
+            std::ofstream out_file;
+
+            out_file.open(caminhoArquivo);
+
+            if (out_file.is_open()) {
+                out_file << this->getDimensoesMapa() << std::endl;
+                imprimirMapa();
+            }
+            else {
+                std::cout << "Erro, TileMap nao foi salvo" << caminhoArquivo << std::endl;
+            }
+
+            out_file.close();
+        }
+
         void TileMap::CarregarMapa() {
             std::ifstream arquivo(caminho);
 

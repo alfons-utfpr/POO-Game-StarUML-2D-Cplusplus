@@ -3,19 +3,18 @@
 #include "CampoTexto.h"
 
 namespace InvasaoAlienigena {
-    namespace Menu {
-        class MenuJogador : public Menu {
+	namespace Menu {
+		class NomeJogadores: public Menu
+		{
         protected:
             bool imprimiu;
             CampoTexto campoTexto;
-            //bool doisJogadores;
 
         public:
-            MenuJogador(Gerenciador::GerenciadorGrafico& GG);
+            NomeJogadores(Gerenciador::GerenciadorGrafico& GG);
             int executar() override;
-            bool usarDoisJogadores(int codigoRetorno);
+            //int usarDoisJogadores(int codigoRetorno);
         };
-    }
-
+	};
 }
 

@@ -29,6 +29,7 @@ namespace InvasaoAlienigena {
             void imprimirMapa() const;
             void setTile(Vetor::Vetor2U posicao, unsigned short novoIndice);
             const LinhaTileMap operator[](unsigned int i) const;
+            void salvarMapa(const char* caminhoArquivo = nullptr);
 
         private:
             void CarregarMapa();

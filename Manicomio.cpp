@@ -1,4 +1,5 @@
 #include "Manicomio.h"
+#include "Kahlo.h"
 #include "Frida.h"
 #include "LagartoVerde.h"
 #include "BuracoInfinito.h"
@@ -76,6 +77,8 @@ namespace InvasaoAlienigena {
                 case Ids::lagartoVerde:
                     listaAmigos.inserir(new Desenhaveis::LagartoVerde(amigo));
                     break;
+                case Ids::projetil:
+                    listaAmigos.inserir(new Projetil::Projetil(amigo));
                 default:
                     break;
                 }
@@ -89,21 +92,34 @@ namespace InvasaoAlienigena {
             
             listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(70.0f, 120.0f)));
             
-            if(jogador2)
+            if (jogador2) 
                 listaAmigos.inserir(new Entidades::Desenhaveis::Frida(Vetor::Vetor2F(110.0f, 120.0f)));
+           
+            //if ()
+            //listaAmigos.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
 
-            for (int i = 0; i < 10; i++) {
+           /* for (int i = 0; i < 10; i++) {
                 
                 listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(15, 0)));
             }
             for (int i = 0; i < 10; i++) {
                
-                listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(10, 0)));
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
-            }
+                listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(20, 10)));
+            }*/
+
+            listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(200.0f,50.0f), Vetor::Vetor2F(20, 10)));
+
+            listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(240.0f,207.0f), Vetor::Vetor2F(15, 0)));
+
+            
+
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(180.0f, 130.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(205.0f, 305.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(305.0f, 580.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(525.0f, 415.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(625.0f, 515.0f), Vetor::Vetor2F(0, 0)));
+            //listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
+            //listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
 
             //listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(300 + rand()% 500, 100.0f), Vetor::Vetor2F(10, 0)));
             //listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(100 + rand()% 800 , 50 + rand()%600), Vetor::Vetor2F(10, 0)));

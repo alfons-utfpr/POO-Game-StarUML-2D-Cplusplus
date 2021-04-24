@@ -15,35 +15,40 @@ namespace InvasaoAlienigena {
         int MenuJogador::executar()
         {
             int ret = Menu::executar();
-            gb.adicionarBotao(new Botao({ 200.0f, 40.0f }, { 50 }, "NÚMERO DE JOGADORES: "));
+            gg.desenharTexto("NÚMERO DE JOGADORES:", { 200.0f, 50.0f }, 15);
+            //gb.adicionarBotao(new Botao({ 200.0f, 40.0f }, { 50 }, "NÚMERO DE JOGADORES: "));
 
-            usarDoisJogadores(doisJogadores);
+            //usarDoisJogadores(ret);
             return ret;
         }
-        int MenuJogador::usarDoisJogadores(int codigoRetorno)
+        bool MenuJogador::usarDoisJogadores(int codigoRetorno)
         {
-            if (umJogador) {
+            if (umJogador ) {
+                //gb.adicionarBotao(&campoTexto);
+                campoTexto.iniciarCaptura();
+                campoTexto.terminarCaptura();
                 //gb.adicionarBotao(new Botao({ 300.0f,100.0f }, {50},"jogo"));
                 if (!imprimiu && campoTexto.getTextoPronto()) {
                     imprimiu = true;
                     std::cout << "Nome do jogador " << campoTexto.getTexto() << std::endl;
                 }
+                return true;
             }
 
             if (doisJogadores) {
-                //gb.adicionarBotao(&campoTexto);
+                gb.adicionarBotao(&campoTexto);
                 if (!imprimiu && campoTexto.getTextoPronto()) {
                     imprimiu = true;
                     std::cout << "Nome do jogador " << campoTexto.getTexto() << std::endl;
                 }
-                //gb.adicionarBotao(&campoTexto);
+                gb.adicionarBotao(&campoTexto);
+                //gb.adicionarBotao(new Botao({ 200.0f, 100.0f }, { 100, 50 }, "enviar", [this] {setCodigoRetorno(umJogador); }));
                 if (!imprimiu && campoTexto.getTextoPronto()) {
                     imprimiu = true;
                     std::cout << "Nome do jogador " << campoTexto.getTexto() << std::endl;
                 }
+                return true;
             }
-
-            return 0;
         }
     }
 }

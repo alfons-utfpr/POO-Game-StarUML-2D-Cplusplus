@@ -15,7 +15,8 @@ namespace InvasaoAlienigena {
 
         /*nome dos jogadores*/
         int MenuConfiguracoes::executar() {
-            gb.adicionarBotao(new Botao({ 200.0f, 50.0f }, { 200.0f }, "SELECIONE A FASE: "));
+            gg.desenharTexto("SELECIONE A FASE:", { 200.0f, 50.0f }, 15);
+            //gb.adicionarBotao(new Botao({ 200.0f, 50.0f }, { 200.0f }, "SELECIONE A FASE: "));
             int ret = Menu::executar();
             if (umJogador) {
                 //gb.adicionarBotao(new Botao({ 200.0f }, { 100.0f }, "Nome do jogador: "));

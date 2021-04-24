@@ -14,6 +14,7 @@ namespace InvasaoAlienigena {
             Gerenciador::GerenciadorEventos ge;
             Gerenciador::GerenciadorBotoes gb;
             Gerenciador::GerenciadorGrafico& gg;
+            //CampoTexto c;
 
         public:
             Menu(Gerenciador::GerenciadorGrafico& GG);
