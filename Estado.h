@@ -8,7 +8,8 @@ namespace InvasaoAlienigena
 		
 		virtual ~Estado();
 		virtual int executar() = 0;
-
+		int codigoRetorno;
+		//int finalFase();
 	};
 	
 }

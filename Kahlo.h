@@ -6,6 +6,8 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
+#include "ListaDesenhaveis.h"
+#include "Desenhavel.h"
 #include "../Json/json.hpp"
 //#include "EntidadeFisica.h"
 
@@ -13,8 +15,8 @@
 namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
-            //class GerenciadorEstado;
-
+            //class Fase;
+            
             class Kahlo: public Jogador{
             private:
                 float vel_x;
@@ -24,10 +26,16 @@ namespace InvasaoAlienigena {
                 //const float gravitySpeed = 0.3;
                 bool isJumping = false;
                 Vetor::Vetor2F ajustes;
+                Lista::ListaDesenhaveis proj;
+               // int codigoRetorno;
+
+                //Fase::Fase fase;
+                //Estado fase;
 
             public:
                 Kahlo(Vetor::Vetor2F pos = { 0.0f , 0.0f });
                 ~Kahlo();
+                //nlohmann::json paraJSON() override;
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);

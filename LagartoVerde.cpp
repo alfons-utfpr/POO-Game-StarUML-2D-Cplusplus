@@ -14,12 +14,24 @@ namespace InvasaoAlienigena {
         }
 
         LagartoVerde::~LagartoVerde() {
+           // proj.removerPrimeiro();
+        }
+
+        nlohmann::json LagartoVerde::paraJSON() {
+            nlohmann::json json;
+
+            json["amigos"] = proj.paraJSON();
+
+            return json;
 
         }
 
-        void LagartoVerde::atualizar(float t) {
-            for (int i = 0; i < projeteis; i++) {
-               new Projetil::Projetil({ 0.0f, 0.0f },{ 30.0f, 0.0f }, Ids::projetil, "imagens/projetil.png");
+        void LagartoVerde::lancarProjetil(float t) {
+            
+            while (t > 0.1f) {
+                //for (int i = 0; i < projeteis; i++) {
+                    new Projetil::Projetil({ 80.0f, 120.0f }, { 30.0f, 0.0f }, Ids::projetil, "imagens/projetil.png");
+                //}
             }
         }
 
@@ -38,11 +50,11 @@ namespace InvasaoAlienigena {
                 float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
                 if (sobr_x > sobr_y) {
                     posicao.x += (dist.x > 0 ? -1 : 1) * sobr_x;
-
+                    v1.x *= -1;
                 }
                 else {
-                    //posicao.x -= (dist.x > 0 ? -1 : 1) * sobr_x;
                     posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
+                    v1.x *= -1;
                 }
             }
             

@@ -13,6 +13,7 @@ namespace InvasaoAlienigena {
             IdOuvinteFecharTela{ gerenciadorEventos.adicionarOuvinteOutro([this](const sf::Event& e) {botaoFecharTelaApertado(e); }) },
             IdOuvinteEntrarMenu{ gerenciadorEventos.adicionarOuvinteTeclado([this](const sf::Event& e) {botaoEntrarMenuApertado(e); }) },
             codigoRetorno{ continuar }
+            //continuarFase {comecarSegundaFase}
             //continuar{true}
         {
 
@@ -56,9 +57,9 @@ namespace InvasaoAlienigena {
             return codigoRetorno;
         }
 
-       /* void Fase::finalFase()
+        /*int Fase::finalFase()
         {
-            continuar = false;
+            //return continuarFase;
         }*/
 
         void Fase::botaoFecharTelaApertado(const sf::Event evento) {

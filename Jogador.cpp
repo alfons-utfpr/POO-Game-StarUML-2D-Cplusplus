@@ -1,5 +1,5 @@
 #include "Jogador.h"
-#include "Desenhavel.h"
+//#include "Desenhavel.h"
 #include <iostream>
 
 
@@ -27,7 +27,7 @@ namespace InvasaoAlienigena {
             }
 
             void Jogador::atualizar(float t) {
-                posicao += v * t;
+                posicao += v1 * t;
             }
 
             void Jogador::desenhar(Gerenciador::GerenciadorGrafico& g) {
@@ -35,6 +35,11 @@ namespace InvasaoAlienigena {
                 g.desenhar(caminho, posicao);
                 g.centralizar(posicao);
             }
+
+			void Jogador::finalFase()
+			{
+
+			}
 
 
         }

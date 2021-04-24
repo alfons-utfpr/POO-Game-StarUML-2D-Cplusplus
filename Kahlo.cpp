@@ -12,12 +12,21 @@ namespace InvasaoAlienigena {
                 vel_x = 80;
                 vel_y = 80;
                 vidas = 3;
-  
+                //codigoRetorno = CodigoRetorno::comecarSegundaFase;
             }
 
             Kahlo::~Kahlo() {
 
             }
+
+           /* nlohmann::json Kahlo::paraJSON() {
+                nlohmann::json json;
+
+                json["amigos"] = proj.paraJSON();
+
+                return json;
+
+            }*/
 
             void Kahlo::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
                 gf.carregarTextura(caminho);
@@ -25,8 +34,10 @@ namespace InvasaoAlienigena {
                 dimensoes = gf.getTamanho(caminho);
 
                 chaveOuvinte = ge.adicionarOuvinteTeclado([this](const sf::Event& e) {tratarEvento(e); });
-
                 gc.adicionarColidivel(this);
+
+                proj.inicializarDesenhaveis(gf, ge, gc);
+
 
             }
 
@@ -64,6 +75,11 @@ namespace InvasaoAlienigena {
 
             void Kahlo::inicializarComJSON(nlohmann::json fonte) {
                 posicao = { fonte["posicao"] };
+                nlohmann::json json;
+
+                json["amigos"] = proj.paraJSON();
+
+               // return json;
             }
 
             void Kahlo::tratarEvento(const sf::Event& f) {
@@ -82,6 +98,10 @@ namespace InvasaoAlienigena {
                         break;
                     case sf::Keyboard::Key::Down:
                         v1.y += vel_y;
+                        break;
+                    case sf::Keyboard::Key::J:
+                        std::cout << "J" << std::endl;
+                        proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
                         break;
                     default:
                         break;
@@ -104,6 +124,10 @@ namespace InvasaoAlienigena {
                         break;
                     case sf::Keyboard::Key::Down:
                         v1.y -= vel_x;
+                        break;
+                    case sf::Keyboard::Key::J:
+
+                        proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
                         break;
                     default:
                         break;
@@ -128,10 +152,7 @@ namespace InvasaoAlienigena {
 
                 else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde || idOutro == Ids::ciclope) {
                     vidas--;
-                    if (vidas == 0)
-                    {   
-                        std::cout << "game over" << std::endl;
-                    }
+                    posicao.x -= 2.0f;
 
                     //std::cout << "perdeu" << vidas << std::endl;
 
@@ -145,17 +166,24 @@ namespace InvasaoAlienigena {
                     posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
                 }
 
+                else if (idOutro == Ids::projetil) {
+                    vidas--;
+                }
+
                 else if (idOutro == Ids::buracoInfinito) {
-                    //bool Gerenciador::GerenciadorTelas::processarCodigo(int codigoRetorno);
-                    //bool Gerenciador::GerenciadorEstados::executar();
+                    std::cout << "game over" << std::endl;
+                    posicao.x = 250.0f;
+                    posicao.y = 150.0f;
                     
                 }
 
                 else if (idOutro == Ids::porta)
                 {
-                    //finalFase();
-                    //Estado::Fase(false);
-                   // Gerenciador::GerenciadorTelas::processarCodigo(comecarSegundaFase);
+                    //Fase::Fase::finalFase();
+                    //codigoRetorno = comecarSegundaFase;
+                    //fase.finalFase();
+                        
+                    //fase->finalFase();
                 }
             }
             void Kahlo::ajustar()

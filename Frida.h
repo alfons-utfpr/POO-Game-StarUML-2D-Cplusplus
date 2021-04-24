@@ -1,6 +1,8 @@
 #pragma once
 #include "Vetor2D.h"
+//#include "Estado.h"
 #include "Colidivel.h"
+#include "Jogador.h"
 #include "GerenciadorEstados.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
@@ -10,19 +12,21 @@
 namespace InvasaoAlienigena {
     namespace Entidades{
         namespace Desenhaveis {
-            class Frida : public Colidivel {
+            class Frida : public Jogador {
             private:
-                float vel_x;
-                float vel_y;
+                float velx;
+                float vely;
                 int vidas;
                 unsigned int chaveOuvinte;
                 //const float gravitySpeed = 0.3;
                 bool isJumping = false;
                 Vetor::Vetor2F ajustes;
+               // Fase::Fase* faseAtual;
 
             public:
                 Frida(Vetor::Vetor2F pos = { 0.0f , 0.0f });
                 ~Frida();
+                
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);

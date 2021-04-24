@@ -4,6 +4,7 @@
 #include "BuracoInfinito.h"
 #include "LagartoVerde.h"
 #include "Frida.h"
+#include "Kahlo.h"
 #include "Tile.h"
 #include "Alien.h"
 #include <fstream>
@@ -57,16 +58,12 @@ namespace InvasaoAlienigena {
                 switch (static_cast<int> (amigo["id"]))
                 {
                 case Ids::kahlo:
-                    listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(amigo));
-                    /*if (jogador1) {
-                        jogador1->inicializarComJSON(amigo);
-                        listaAmigos.inserir(jogador1);
-                    }*/
+                    jogador1->inicializarComJSON(amigo);
+                    listaAmigos.inserir(jogador1);
                     break;
                 case Ids::frida:
-                    listaAmigos.inserir(new Entidades::Desenhaveis::Frida(amigo));
-                        //jogador2->inicializarComJSON(amigo);
-                        //listaAmigos.inserir(jogador2);
+                    jogador2->inicializarComJSON(amigo);
+                    listaAmigos.inserir(jogador2);
                     break;
                 case Ids::alien:
                     listaAmigos.inserir(new Desenhaveis::Alien(amigo));
@@ -89,13 +86,16 @@ namespace InvasaoAlienigena {
         }
 
         void Hospital::inicializar() {
+
+            listaAmigos.inserir(new Obstaculo::BuracoInfinito(Vetor::Vetor2F(100.0f, 260.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::BuracoInfinito(Vetor::Vetor2F(410.0f, 210.0f), Vetor::Vetor2F(0, 0)));
             
-            listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(200.0f, 130.0f)));
+            listaAmigos.inserir(new Entidades::Desenhaveis::Kahlo(Vetor::Vetor2F(250.0f, 150.0f)));
             
             if (jogador2)
-                listaAmigos.inserir(new Entidades::Desenhaveis::Frida(Vetor::Vetor2F(250.0f, 170.0f)));
-            
-            for (int i = 0; i < 5; i++) {
+                listaAmigos.inserir(new Entidades::Desenhaveis::Frida(Vetor::Vetor2F(280.0f, 150.0f)));
+            //x,y//
+            /*for (int i = 0; i < 5; i++) {
 
                 listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(15, 0)));
             }
@@ -107,13 +107,13 @@ namespace InvasaoAlienigena {
             for (int i = 0; i < 5; i++)
             {
                 listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                listaAmigos.inserir(new Obstaculo::BuracoInfinito(Vetor::Vetor2F(200 + rand() % 800, 100 + rand() % 600), Vetor::Vetor2F(0, 0)));
-            }
+            }*/
+            //listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(), Vetor::Vetor2F(10, 0)));
+
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(320.0f, 150.0f), Vetor::Vetor2F(0, 0)));
+            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(620.0f, 350.0f), Vetor::Vetor2F(0, 0)));
             
-            listaAmigos.inserir(new Desenhaveis::Ciclope(Vetor::Vetor2F(350.0f, 150.0f), Vetor::Vetor2F(20, 0)));
+            //listaAmigos.inserir(new Desenhaveis::Ciclope(Vetor::Vetor2F(350.0f, 150.0f), Vetor::Vetor2F(20, 10)));
             
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 

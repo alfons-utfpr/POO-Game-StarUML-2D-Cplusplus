@@ -24,6 +24,7 @@ namespace InvasaoAlienigena {
         selecionarJogador,
         fimDeJogo,
         nome,
+        comecar,
         
     };
 

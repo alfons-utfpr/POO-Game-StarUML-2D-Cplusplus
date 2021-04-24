@@ -102,23 +102,28 @@ namespace InvasaoAlienigena {
 
                 else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde) {
                     vidas--;
+                    posicao.x -=10.0f ;
+                    //posicao.y = 150.0f;
+                    
+                }
 
-                    if (vidas == 0) {
-                        imprimir = "perdeu";
-                    }
+                else if(idOutro == Ids::buracoInfinito){
+                    posicao.x = 280.0f;
+                    posicao.y = 150.0f;
                 }
 
                 else if (idOutro == Ids::espinho_fundo) {
                     vidas--;
-                    float dist_y = (static_cast<float>(dimensoes.y) + posicao.y) / 2 - std::abs(posicao.y + static_cast<float>(dimensoes.y) / 2 - posicaoOutro.y - dimensoes.y / 2);
-                    if (dist_y > std::abs(ajustes.y)) {
-                        posicao.y += dist_y * (posicao.y + static_cast<float>(dimensoes.y) / 2 > posicaoOutro.y + posicao.y / 2 ? 1 : -1);
-                    }
+                    Vetor::Vetor2F dist = posicao - posicaoOutro;
+                    float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
+
+                    posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
                 }
 
                 else if (idOutro == Ids::porta)
                 {
-                    //
+                    //Fase::Fase
+                    //faseAtual->finalFase();
                 }
             }
             void Frida::ajustar()

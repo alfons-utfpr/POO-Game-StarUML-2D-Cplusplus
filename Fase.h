@@ -11,6 +11,7 @@
 #include "Frida.h"
 #include "Relogio.h"
 #include "Projetil.h"
+#include "../Json/json.hpp"
 
 namespace InvasaoAlienigena {
     namespace Fase {
@@ -24,7 +25,7 @@ namespace InvasaoAlienigena {
             Gerenciador::GerenciadorTiles* gerenciadorTiles;
             Relogio relogio; 
             Lista::ListaDesenhaveis listaAmigos;
-            //bool continuar;
+            bool continuarFase;
             
 
 
@@ -34,8 +35,9 @@ namespace InvasaoAlienigena {
             ~Fase();
             int executar() override;
             virtual void inicializar() = 0;
+            void inicializarComJSON(nlohmann::json fonte);
             //void atualizarProjetil();
-            //void finalFase();
+            int finalFase();
 
         private:
             unsigned int IdOuvinteFecharTela;
@@ -54,6 +56,7 @@ namespace InvasaoAlienigena {
         protected:
             void setCodigoRetorno(int codigo);
             int codigoRetorno;
+            //int continuarFase;
         };
     }
 }

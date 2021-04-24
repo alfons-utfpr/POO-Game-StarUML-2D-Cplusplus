@@ -7,6 +7,7 @@
 #include "MenuPausa.h"
 #include "MenuJogador.h"
 #include "MenuConfiguracoes.h"
+#include "NomeJogadores.h"
 #include <iostream>
 
 namespace InvasaoAlienigena {
@@ -30,16 +31,45 @@ namespace InvasaoAlienigena {
             case umJogador:
             {
                 multiplosJogadores = false;
-                push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
+                push(new Menu::NomeJogadores(gerenciadorGrafico));
                 return false;
             }
 
             case doisJogadores:
             {
                 multiplosJogadores = true;
+                push(new Menu::NomeJogadores(gerenciadorGrafico));
+               // push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
+                return false;
+            }
+
+            case comecar: 
+            {
                 push(new Menu::MenuConfiguracoes(gerenciadorGrafico));
                 return false;
             }
+
+            case comecarPrimeiraFase:
+                if (!multiplosJogadores)
+                {
+                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1);
+                    fase->inicializar();
+                    push(fase);
+                    //pop();
+                    //Fase::Hospital* segunda = new Fase::Hospital(gerenciadorGrafico, jogador1);
+                    //push(segunda);
+                    return false;
+                }
+                else
+                {
+                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
+                    fase->inicializar();
+                    push(fase);
+                    //pop();
+                    //Fase::Hospital* segunda = new Fase::Hospital(gerenciadorGrafico, jogador1, jogador2);
+                    //push(segunda);
+                    return false;
+                }
 
             case comecarSegundaFase:
             {
@@ -77,14 +107,14 @@ namespace InvasaoAlienigena {
                 Fase::Fase* fase = dynamic_cast<Fase::Fase*>(top());
                 if (!fase)
                     std::cout << "Erro! Não há fase a ser salva." << std::endl;
-                else if (fase->salvar("../jogos-salvos/jogo_salvo.json"))
+                else if (!fase->salvar("../jogos-salvos/jogo_salvo.json"))
                     std::cout << "Erro! O jogo não pôde ser salvo." << std::endl;
                 return false;
             }
             case carregarJogo:
             {
                 std::cout << "como";
-                Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
+                Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1);
                 std::cout << " onde" << std::endl;
                 try {
                     fase->carregar("../jogos-salvos/jogo_salvo.json");
@@ -108,22 +138,6 @@ namespace InvasaoAlienigena {
                 esvaziarPilha();
                 push(new Menu::MenuPrincipal(gerenciadorGrafico));
                 return false;
-
-            case comecarPrimeiraFase:
-                if (!multiplosJogadores)
-                {
-                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1);
-                    fase->inicializar();
-                    push(fase);
-                    return false;
-                }
-                else 
-                {
-                    Fase::Manicomio* fase = new Fase::Manicomio(gerenciadorGrafico, jogador1, jogador2);
-                    fase->inicializar();
-                    push(fase);
-                    return false;
-                }
 
             case continuar:
                 return false;
