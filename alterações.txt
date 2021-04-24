@@ -1,0 +1,8 @@
+-Tirar include FaseFinal de Gerenciador de telas.
+-Alterações velx e vely para vel_x vel_y
+-declarações de v1 e v2 não encontradas alterei para v as duas
+-mudar caminhos em TileSet.tsx , Hospital.cpp e Manicomio.cpp
+-remover declarações de prisão.png,teste.png,fundo.png
+-criar pasta fonte para Cantora no diretório anterior
+-modificar caminho de inimigo2 para imagens/inimigo2.png
+-modificar nome da classe Alien para Robotão

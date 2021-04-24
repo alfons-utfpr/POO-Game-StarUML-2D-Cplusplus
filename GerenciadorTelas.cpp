@@ -1,6 +1,5 @@
 #include "GerenciadorTelas.h"
 #include "Score.h"
-#include "FaseFinal.h"
 #include "Hospital.h"
 #include "Manicomio.h"
 #include "MenuPrincipal.h"
@@ -106,9 +105,9 @@ namespace InvasaoAlienigena {
                 pop();
                 Fase::Fase* fase = dynamic_cast<Fase::Fase*>(top());
                 if (!fase)
-                    std::cout << "Erro! Não há fase a ser salva." << std::endl;
+                    std::cout << "Erro! Nï¿½o hï¿½ fase a ser salva." << std::endl;
                 else if (!fase->salvar("../jogos-salvos/jogo_salvo.json"))
-                    std::cout << "Erro! O jogo não pôde ser salvo." << std::endl;
+                    std::cout << "Erro! O jogo nï¿½o pï¿½de ser salvo." << std::endl;
                 return false;
             }
             case carregarJogo:

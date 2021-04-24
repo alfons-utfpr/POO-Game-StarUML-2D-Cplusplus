@@ -6,7 +6,6 @@ namespace InvasaoAlienigena
 	{
 		enum Ids
 		{
-			teste_chama,
 			porta,
 			kahlo,
 			lagartoVerde,
@@ -30,10 +29,9 @@ namespace InvasaoAlienigena
 			fundo1,
 			buracoInfinito,
 			personagem,
-			prisao,
 			teste,
 			teste_fundo2,
-			alien,
+			robotao,
 			segundoHeroi,
 			ciclope,
 			caixote,

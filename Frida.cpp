@@ -7,7 +7,7 @@ namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
             Frida::Frida(Vetor::Vetor2F pos) : 
-                Jogador(pos, Vetor::Vetor2F(), Ids::frida, "../imagens/heroi2.png") {
+                Jogador(pos, Vetor::Vetor2F(), Ids::frida, "../imagens/Frida.png") {
                 velx = 80;
                 vely = 80;
                 vidas = 3;
@@ -29,7 +29,7 @@ namespace InvasaoAlienigena {
             }
 
             void Frida::atualizar(float t) {
-                posicao += v2 * t;
+                posicao += v * t;
             }
 
             void Frida::desenhar(Gerenciador::GerenciadorGrafico& g) {
@@ -40,7 +40,7 @@ namespace InvasaoAlienigena {
 
             void Frida::inicializarComJSON(nlohmann::json fonte) {
                 posicao = { fonte["posicao"] };
-                v2 = { fonte["velocidade"] };
+                v = { fonte["velocidade"] };
             }
 
             void Frida::tratarEvento(const sf::Event& e) {
@@ -49,17 +49,17 @@ namespace InvasaoAlienigena {
 
                     switch (e.key.code) {
                     case sf::Keyboard::Key::D:
-                        v2.x += velx;
+                        v.x += velx;
                         break;
                     case sf::Keyboard::Key::A:
-                        v2.x -= velx;
+                        v.x -= velx;
                         break;
                     case sf::Keyboard::Key::W:
-                        v2.y -= vely;
+                        v.y -= vely;
                         isJumping = true;
                         break;
                     case sf::Keyboard::Key::S:
-                        v2.y += vely;
+                        v.y += vely;
                         break;
                     default:
                         break;
@@ -68,16 +68,16 @@ namespace InvasaoAlienigena {
                 else if (e.type == sf::Event::KeyReleased) {
                     switch (e.key.code) {
                     case sf::Keyboard::Key::D:
-                        v2.x -= velx;
+                        v.x -= velx;
                         break;
                     case sf::Keyboard::Key::A:
-                        v2.x += velx;
+                        v.x += velx;
                         break;
                     case sf::Keyboard::Key::W:
-                        v2.y += vely;
+                        v.y += vely;
                         break;
                     case sf::Keyboard::Key::S:
-                        v2.y -= vely;
+                        v.y -= vely;
                         break;
                     default:
                         break;
@@ -100,7 +100,7 @@ namespace InvasaoAlienigena {
                     }
                 }
 
-                else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde) {
+                else if (idOutro == Ids::robotao || idOutro == Ids::lagartoVerde) {
                     vidas--;
                     posicao.x -=10.0f ;
                     //posicao.y = 150.0f;
@@ -135,10 +135,10 @@ namespace InvasaoAlienigena {
                 if (ajustes.y < 0) {
                     isJumping = false;
 
-                    v2.y = 0;
+                    v.y = 0;
                 }
                 else if (ajustes.y > 0) {
-                    v2.y = 0;
+                    v.y = 0;
                 }
             }
             const int Frida::getVidas() const

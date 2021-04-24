@@ -6,7 +6,7 @@
 #include "Frida.h"
 #include "Kahlo.h"
 #include "Tile.h"
-#include "Alien.h"
+#include "Robotao.h"
 #include <fstream>
 
 namespace InvasaoAlienigena {
@@ -14,24 +14,22 @@ namespace InvasaoAlienigena {
         Hospital::Hospital(Gerenciador::GerenciadorGrafico& gg, Entidades::Desenhaveis::Kahlo* jogador1, Entidades::Desenhaveis::Frida* jogador2) : Fase{ gg,
         new Gerenciador::GerenciadorTiles{
         {
-            new Tile::Tile(Ids::armadilha_direita, "armadilha_direita.png"),
-            new Tile::Tile(Ids::armadilha_esquerda,"armadilha_esquerda.png"),
-            new Tile::Tile(Ids::espinho,"espinho.png"),
-            new Tile::Tile(Ids::espinho_direita,"espinho_direita.png"),
-            new Tile::Tile(Ids::espinho_esquerda,"espinho_esquerda.png"),
-            new Tile::Tile(Ids::teste_fundo2,"teste_fundo2.png"),
-            new Tile::Tile(Ids::espinho_fundo,"espinho_fundo2.png"),
-            new Tile::Tile(Ids::esquerda2,"esquerda2.png"),
-            new Tile::Tile(Ids::fundo,"fundo.png"),
-            new Tile::Tile(Ids::fundo1,"fundo1.png"),
-            new Tile::Tile(Ids::parede, "parede.png"),
-            new Tile::Tile(Ids::parede_clara,"parede_clara.png"),
-            new Tile::Tile(Ids::parede_up,"parede_clara.png"),
-            new Tile::Tile(Ids::porta,"porta.png"),
-            new Tile::Tile(Ids::prisao,"prisao.png"),
-            new Tile::Tile(Ids::teste,"teste.png"),
-            new Tile::Tile(Ids::teste_fundo,"teste_fundo.png"),
-            new Tile::Tile(Ids::espinho_fundo,"espinho_fundo.png"),
+            new Tile::Tile(Ids::armadilha_direita, "../imagens/armadilha_direita.png"),
+            new Tile::Tile(Ids::armadilha_esquerda,"../imagens/armadilha_esquerda.png"),
+            new Tile::Tile(Ids::espinho,"../imagens/espinho.png"),
+            new Tile::Tile(Ids::espinho_direita,"../imagens/espinho_direita.png"),
+            new Tile::Tile(Ids::espinho_esquerda,"../imagens/espinho_esquerda.png"),
+            new Tile::Tile(Ids::teste_fundo2,"../imagens/teste_fundo2.png"),
+            new Tile::Tile(Ids::espinho_fundo,"../imagens/espinho_fundo2.png"),
+            new Tile::Tile(Ids::esquerda2,"../imagens/esquerda2.png"),
+            new Tile::Tile(Ids::fundo,"../imagens/fundo.png"),
+            new Tile::Tile(Ids::fundo1,"../imagens/fundo1.png"),
+            new Tile::Tile(Ids::parede, "../imagens/parede.png"),
+            new Tile::Tile(Ids::parede_clara,"../imagens/parede_clara.png"),
+            new Tile::Tile(Ids::parede_up,"../imagens/parede_clara.png"),
+            new Tile::Tile(Ids::porta,"../imagens/porta.png"),
+            new Tile::Tile(Ids::teste_fundo,"../imagens/teste_fundo.png"),
+            new Tile::Tile(Ids::espinho_fundo,"../imagens/espinho_fundo.png"),
             },
              {32.0f, 32.0f}, "../TileMap/tilemapJogo.json"
            }
@@ -65,8 +63,8 @@ namespace InvasaoAlienigena {
                     jogador2->inicializarComJSON(amigo);
                     listaAmigos.inserir(jogador2);
                     break;
-                case Ids::alien:
-                    listaAmigos.inserir(new Desenhaveis::Alien(amigo));
+                case Ids::robotao:
+                    listaAmigos.inserir(new Desenhaveis::Robotao(amigo));
                     break;
                 case Ids::ciclope:
                     listaAmigos.inserir(new Desenhaveis::LagartoVerde(amigo));
@@ -97,7 +95,7 @@ namespace InvasaoAlienigena {
             //x,y//
             /*for (int i = 0; i < 5; i++) {
 
-                listaAmigos.inserir(new Desenhaveis::Alien(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(15, 0)));
+                listaAmigos.inserir(new Desenhaveis::Robotao(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(15, 0)));
             }
             for (int i = 0; i < 5; i++) {
 

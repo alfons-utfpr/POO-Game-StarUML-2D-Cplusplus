@@ -1,6 +1,6 @@
 #include "Fase.h"
 #include "GerenciadorTelas.h"
-#include "Alien.h"
+#include "Robotao.h"
 #include <iostream>
 
 namespace InvasaoAlienigena {
@@ -75,7 +75,7 @@ namespace InvasaoAlienigena {
 
         void Fase::initFont()
         {
-            if (this->font.loadFromFile("CantoraOne-Regular.ttf")) {
+            if (this->font.loadFromFile("../fonte/CantoraOne-Regular.ttf")) {
                 std::cout << "Erro na fonte" << std::endl;
             }
         }

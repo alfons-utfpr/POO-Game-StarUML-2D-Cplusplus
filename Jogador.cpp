@@ -27,7 +27,7 @@ namespace InvasaoAlienigena {
             }
 
             void Jogador::atualizar(float t) {
-                posicao += v1 * t;
+                posicao += v * t;
             }
 
             void Jogador::desenhar(Gerenciador::GerenciadorGrafico& g) {

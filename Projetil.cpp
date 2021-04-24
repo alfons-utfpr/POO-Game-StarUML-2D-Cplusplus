@@ -45,7 +45,7 @@ namespace InvasaoAlienigena {
 
 		void Projetil::atualizar(float t)
 		{
-			posicao += v1 * t;
+			posicao += v * t;
 		}
 
 		void Projetil::desenhar(Gerenciador::GerenciadorGrafico& g)

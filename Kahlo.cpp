@@ -8,7 +8,7 @@ namespace InvasaoAlienigena {
     namespace Entidades {
         namespace Desenhaveis {
             Kahlo::Kahlo(Vetor::Vetor2F pos) : 
-                Jogador(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/heroi1.png") {
+                Jogador(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/Kahlo.png") {
                 vel_x = 80;
                 vel_y = 80;
                 vidas = 3;
@@ -64,7 +64,7 @@ namespace InvasaoAlienigena {
                     v.y = vel_y * (v.y > 0 ? 1 : -1);
                 }*/
 
-                posicao += v1 * t;
+                posicao += v * t;
             }
 
             void Kahlo::desenhar(Gerenciador::GerenciadorGrafico& g) {
@@ -88,16 +88,16 @@ namespace InvasaoAlienigena {
 
                     switch (f.key.code) {
                     case sf::Keyboard::Key::Right:
-                        v1.x += vel_x;
+                        v.x += vel_x;
                         break;
                     case sf::Keyboard::Key::Left:
-                        v1.x -= vel_x;
+                        v.x -= vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        v1.y -= vel_y;
+                        v.y -= vel_y;
                         break;
                     case sf::Keyboard::Key::Down:
-                        v1.y += vel_y;
+                        v.y += vel_y;
                         break;
                     case sf::Keyboard::Key::J:
                         std::cout << "J" << std::endl;
@@ -110,20 +110,20 @@ namespace InvasaoAlienigena {
                 else if (f.type == sf::Event::KeyReleased) {
                     switch (f.key.code) {
                     case sf::Keyboard::Key::Right:
-                        v1.x -= vel_x;
+                        v.x -= vel_x;
                         break;
                     case sf::Keyboard::Key::Left:
-                        v1.x += vel_x;
+                        v.x += vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        v1.y += vel_y;
+                        v.y += vel_y;
                         /*if (!isJumping) {
                             isJumping = true;
                             vel_y -= 0.2 * vel_y;
                         }*/
                         break;
                     case sf::Keyboard::Key::Down:
-                        v1.y -= vel_x;
+                        v.y -= vel_x;
                         break;
                     case sf::Keyboard::Key::J:
 
@@ -150,7 +150,7 @@ namespace InvasaoAlienigena {
                     }
                 }
 
-                else if (idOutro == Ids::alien || idOutro == Ids::lagartoVerde || idOutro == Ids::ciclope) {
+                else if (idOutro == Ids::robotao || idOutro == Ids::lagartoVerde || idOutro == Ids::ciclope) {
                     vidas--;
                     posicao.x -= 2.0f;
 
@@ -194,10 +194,10 @@ namespace InvasaoAlienigena {
                 if (ajustes.y < 0) {
                     isJumping = false;
                     //v.x = 0;
-                    v1.y = 0;
+                    v.y = 0;
                 }
                 else if (ajustes.y > 0) {
-                    v1.y = 0;
+                    v.y = 0;
                 }
                 //Entidades::EntidadeFisica::ajustar();
             }

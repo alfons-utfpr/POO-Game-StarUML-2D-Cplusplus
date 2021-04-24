@@ -9,7 +9,7 @@ namespace InvasaoAlienigena {
             text{ nullptr }
         {
             janela->setView(camera);
-            fonte.loadFromFile("CantoraOne-Regular.ttf");
+            fonte.loadFromFile("../fonte/CantoraOne-Regular.ttf");
         }
 
         GerenciadorGrafico::~GerenciadorGrafico() {
@@ -85,7 +85,7 @@ namespace InvasaoAlienigena {
 
         void GerenciadorGrafico::centralizar(const Vetor::Vetor2F centro) {
             camera.setCenter(sf::Vector2f(centro.x, centro.y));
-            janela->setView(camera); //A RenderWindow faz uma cópia da View ao invés de usar o ponteiro, então é preciso a sobre-escrever sempre que for modificada.
+            janela->setView(camera); //A RenderWindow faz uma cï¿½pia da View ao invï¿½s de usar o ponteiro, entï¿½o ï¿½ preciso a sobre-escrever sempre que for modificada.
         }
 
         const Vetor::Vetor2F GerenciadorGrafico::getTamanhoTela() const {
