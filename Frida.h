@@ -31,7 +31,7 @@ namespace InvasaoAlienigena {
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
                 void tratarEvento(const sf::Event& e);
-                void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
+                //void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
                 void inicializarComJSON(nlohmann::json fonte);
                 void ajustar();
                 const int getVidas() const;

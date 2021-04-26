@@ -5,10 +5,12 @@
 #include "GerenciadorColisao.h"
 #include "Ids.h"
 #include "Serializavel.h"
+#include <math.h>
 
 namespace InvasaoAlienigena {
    // namespace Desenhaveis {
         class Desenhavel : public Serializavel {
+                
         protected:
             Vetor::Vetor2F intercessao;
             Vetor::Vetor2F posicao;

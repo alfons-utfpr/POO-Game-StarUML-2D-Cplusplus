@@ -1,5 +1,5 @@
 #pragma once
-//#include "Colidivel.h"
+#include "Colidivel.h"
 #include "Inimigo.h"
 #include "Ids.h"
 
@@ -9,7 +9,7 @@ namespace InvasaoAlienigena {
         private:
             float vel_max_x;
             float vel_max_y;
-            Vetor::Vetor2F ajustes;
+            //Vetor::Vetor2F ajustes;
 
         public:
 
@@ -17,8 +17,8 @@ namespace InvasaoAlienigena {
             Ciclope(nlohmann::json fonte);
             ~Ciclope();
             void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
-            void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
-            void atualizar(float t);
+            //void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
+            //void atualizar(float t);
         };
     }
 }

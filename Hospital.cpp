@@ -105,13 +105,14 @@ namespace InvasaoAlienigena {
             for (int i = 0; i < 5; i++)
             {
                 listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
-            }*/
-            //listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(), Vetor::Vetor2F(10, 0)));
+            }
+            */
+            listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(), Vetor::Vetor2F(10, 0)));
 
             listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(320.0f, 150.0f), Vetor::Vetor2F(0, 0)));
             listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(620.0f, 350.0f), Vetor::Vetor2F(0, 0)));
             
-            //listaAmigos.inserir(new Desenhaveis::Ciclope(Vetor::Vetor2F(350.0f, 150.0f), Vetor::Vetor2F(20, 10)));
+            listaAmigos.inserir(new Desenhaveis::Ciclope(Vetor::Vetor2F(350.0f, 150.0f), Vetor::Vetor2F(20, 10)));
             
             listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 

@@ -106,17 +106,12 @@ namespace InvasaoAlienigena {
                 listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(20, 10)));
             }*/
 
-            listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(200.0f,50.0f), Vetor::Vetor2F(20, 10)));
-
+            listaAmigos.inserir(new Desenhaveis::LagartoVerde(Vetor::Vetor2F(240.0f,50.0f), Vetor::Vetor2F(20, 10)));
+            
             listaAmigos.inserir(new Desenhaveis::Robotao(Vetor::Vetor2F(240.0f,207.0f), Vetor::Vetor2F(15, 0)));
 
-            
-
             listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(180.0f, 130.0f), Vetor::Vetor2F(0, 0)));
-            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(205.0f, 305.0f), Vetor::Vetor2F(0, 0)));
-            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(305.0f, 580.0f), Vetor::Vetor2F(0, 0)));
-            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(525.0f, 415.0f), Vetor::Vetor2F(0, 0)));
-            listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(625.0f, 515.0f), Vetor::Vetor2F(0, 0)));
+      
             //listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
             //listaAmigos.inserir(new Obstaculo::Caixote(Vetor::Vetor2F(100 + rand() % 800, 50 + rand() % 600), Vetor::Vetor2F(0, 0)));
 

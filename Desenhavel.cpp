@@ -6,7 +6,7 @@ namespace InvasaoAlienigena {
    // namespace Desenhaveis {
         Desenhavel::Desenhavel(Ids::Ids ID, Vetor::Vetor2F pos, Vetor::Vetor2F vel, const char* caminhoTextura) :
             posicao{ pos }, v{ vel }, caminho{ caminhoTextura }, id{ ID } {
-
+                
         }
 
         Desenhavel::~Desenhavel() {
@@ -16,10 +16,9 @@ namespace InvasaoAlienigena {
             gf.carregarTextura(caminho);
         }
 
-        void Desenhavel::atualizar(float t) {
-
-            posicao += v * t;
-
+        void Desenhavel::atualizar(float t) 
+        {
+           
         }
 
         void Desenhavel::desenhar(Gerenciador::GerenciadorGrafico& g) {

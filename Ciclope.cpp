@@ -17,9 +17,9 @@ namespace InvasaoAlienigena {
 
         }
 
-        void Ciclope::atualizar(float t) {
+        /*void Ciclope::atualizar(float t) {
             //posicao += v * t;
-        }
+        }*/
 
         void Ciclope::inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
             gf.carregarTextura(caminho);
@@ -29,7 +29,7 @@ namespace InvasaoAlienigena {
             gc.adicionarColidivel(this);
         }
 
-        void Ciclope::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
+       /* void Ciclope::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
             if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::frida || idOutro == Ids::caixote) {
                 Vetor::Vetor2F dist = posicao - posicaoOutro;
                 float sobr_x = std::abs(dist.x) - (dimensoes.x + dimensoesOutro.x) * 0.5;
@@ -44,6 +44,6 @@ namespace InvasaoAlienigena {
                 }
             }
             
-        }
+        }*/
     }
 }

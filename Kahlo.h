@@ -21,13 +21,14 @@ namespace InvasaoAlienigena {
             private:
                 float vel_x;
                 float vel_y;
+                float alt_pulo;
                 int vidas;
                 unsigned int chaveOuvinte;
                 //const float gravitySpeed = 0.3;
-                bool isJumping = false;
                 Vetor::Vetor2F ajustes;
                 Lista::ListaDesenhaveis proj;
-               // int codigoRetorno;
+
+                //int codigoRetorno;
 
                 //Fase::Fase fase;
                 //Estado fase;
@@ -40,7 +41,7 @@ namespace InvasaoAlienigena {
                 void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
                 void tratarEvento(const sf::Event& f);
-                void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
+                //void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);
                 void inicializarComJSON(nlohmann::json fonte);
                 void ajustar();
                 //void proximaFase(GerenciadorGrafico& gg, Entidades::Desenhaveis::Heroi* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);

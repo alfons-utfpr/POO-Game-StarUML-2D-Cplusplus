@@ -11,6 +11,7 @@ namespace InvasaoAlienigena {
                 Jogador(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/Kahlo.png") {
                 vel_x = 80;
                 vel_y = 80;
+                alt_pulo = 80;
                 vidas = 3;
                 //codigoRetorno = CodigoRetorno::comecarSegundaFase;
             }
@@ -42,28 +43,17 @@ namespace InvasaoAlienigena {
             }
 
             void Kahlo::atualizar(float t) {
-                /*if (std::abs(v.y) <= 5)
-                {
-                    isJumping = false;
-                    v.y = 0;
-                } 
+                //Gravidade
+                /*
+                vel_y += 1.0 * gravidade;
                 
-                else 
+                if (std::abs(v.y) > velmax_y) 
                 {
-                    isJumping = true;
-                    v.y += 50 * t;
+                    v.y = velmax_y * (v.y > 0 ? 1 : -1);
                 }
-
-                if (std::abs(v.x) > vel_x) 
-                {
-                    v.x = vel_x * (v.x > 0 ? 1 : -1);
-                }
-
-                if (std::abs(v.y) > vel_y) 
-                {
-                    v.y = vel_y * (v.y > 0 ? 1 : -1);
-                }*/
-
+                
+                    //v.y = sqrtf(2 * gravidade * alt_pulo);
+                */
                 posicao += v * t;
             }
 
@@ -79,13 +69,10 @@ namespace InvasaoAlienigena {
 
                 json["amigos"] = proj.paraJSON();
 
-               // return json;
             }
 
             void Kahlo::tratarEvento(const sf::Event& f) {
                 if (f.type == sf::Event::KeyPressed) {
-
-
                     switch (f.key.code) {
                     case sf::Keyboard::Key::Right:
                         v.x += vel_x;
@@ -94,11 +81,14 @@ namespace InvasaoAlienigena {
                         v.x -= vel_x;
                         break;
                     case sf::Keyboard::Key::Up:
-                        v.y -= vel_y;
+                        
+                        this->v.y = -sqrtf(2 * gravidade * alt_pulo);
+                        
                         break;
                     case sf::Keyboard::Key::Down:
                         v.y += vel_y;
                         break;
+
                     case sf::Keyboard::Key::J:
                         std::cout << "J" << std::endl;
                         proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
@@ -109,98 +99,40 @@ namespace InvasaoAlienigena {
                 }
                 else if (f.type == sf::Event::KeyReleased) {
                     switch (f.key.code) {
-                    case sf::Keyboard::Key::Right:
-                        v.x -= vel_x;
-                        break;
-                    case sf::Keyboard::Key::Left:
-                        v.x += vel_x;
-                        break;
-                    case sf::Keyboard::Key::Up:
-                        v.y += vel_y;
-                        /*if (!isJumping) {
-                            isJumping = true;
-                            vel_y -= 0.2 * vel_y;
-                        }*/
-                        break;
-                    case sf::Keyboard::Key::Down:
-                        v.y -= vel_x;
-                        break;
-                    case sf::Keyboard::Key::J:
-
-                        proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
-                        break;
-                    default:
-                        break;
+                        case sf::Keyboard::Key::Right:
+                            v.x -= vel_x;
+                            break;
+                        case sf::Keyboard::Key::Left:
+                            v.x += vel_x;
+                            break;
+                        case sf::Keyboard::Key::Up:                            
+                            this->v.y = sqrtf(2 * gravidade * alt_pulo);
+                            break;
+                        case sf::Keyboard::Key::Down:
+                            v.y -= vel_y;
+                            break;
+                        case sf::Keyboard::Key::J:
+                            proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
-
-            void Kahlo::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
-                //std::string imprimir;
-                
-                if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara) {
-                    Vetor::Vetor2F dist = posicao - posicaoOutro;
-                    float sobr_x = std::abs(dist.x) - (dimensoes.x + dimensoesOutro.x) * 0.5;
-                    float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
-                    if (sobr_x > sobr_y) {
-                        posicao.x += (dist.x > 0 ? -1 : 1) * sobr_x;
-                    }
-                    else {
-                        posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
-                    }
-                }
-
-                else if (idOutro == Ids::robotao || idOutro == Ids::lagartoVerde || idOutro == Ids::ciclope) {
-                    vidas--;
-                    posicao.x -= 2.0f;
-
-                    //std::cout << "perdeu" << vidas << std::endl;
-
-                }
-
-                else if (idOutro == Ids::espinho_fundo) {
-                    vidas--;
-                    Vetor::Vetor2F dist = posicao - posicaoOutro;
-                    float sobr_y = std::abs(dist.y) - (dimensoes.y + dimensoesOutro.y) * 0.5;
-
-                    posicao.y += (dist.y > 0 ? -1 : 1) * sobr_y;
-                }
-
-                else if (idOutro == Ids::projetil) {
-                    vidas--;
-                }
-
-                else if (idOutro == Ids::buracoInfinito) {
-                    std::cout << "game over" << std::endl;
-                    posicao.x = 250.0f;
-                    posicao.y = 150.0f;
-                    
-                }
-
-                else if (idOutro == Ids::porta)
-                {
-                    //Fase::Fase::finalFase();
-                    //codigoRetorno = comecarSegundaFase;
-                    //fase.finalFase();
-                        
-                    //fase->finalFase();
-                }
-            }
-            void Kahlo::ajustar()
+            
+            /*void Kahlo::ajustar()
             {
                 ajustes = Vetor::Vetor2F(0, 0);
                 posicao += ajustes;
-
                 if (ajustes.y < 0) {
-                    isJumping = false;
-                    //v.x = 0;
+                    taPulando = false;
                     v.y = 0;
                 }
                 else if (ajustes.y > 0) {
                     v.y = 0;
                 }
-                //Entidades::EntidadeFisica::ajustar();
-            }
+            }*/
+
             const int Kahlo::getVidas() const
             {
                 return vidas;

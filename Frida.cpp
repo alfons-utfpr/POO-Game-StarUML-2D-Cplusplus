@@ -85,6 +85,7 @@ namespace InvasaoAlienigena {
                 }
             }
 
+        /*
             void Frida::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
                 std::string imprimir;
 
@@ -126,6 +127,7 @@ namespace InvasaoAlienigena {
                     //faseAtual->finalFase();
                 }
             }
+        */
             void Frida::ajustar()
             {
                 ajustes = Vetor::Vetor2F(0, 0);

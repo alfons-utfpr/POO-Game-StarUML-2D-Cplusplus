@@ -25,7 +25,7 @@ namespace InvasaoAlienigena {
             gc.adicionarColidivel(this);
         }
 
-        void Robotao::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
+        /*void Robotao::colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro) {
 
             if (idOutro == Ids::parede_up || idOutro == Ids::parede_clara || idOutro == Ids::caixote) {
                 Vetor::Vetor2F dist = posicao - posicaoOutro;
@@ -38,6 +38,6 @@ namespace InvasaoAlienigena {
                     posicao.x -= (dist.y > 0 ? -1 : 1) * sobr_y;
                 }
             }
-        }
+        }*/
     }
 }
