@@ -1,6 +1,5 @@
 #include "Projetil.h"
 namespace InvasaoAlienigena {
-	namespace Projetil {
 
 		/*Projetil::Projetil(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt) :
 			gerenciadorGrafico{ gg },
@@ -13,7 +12,7 @@ namespace InvasaoAlienigena {
 		Projetil::Projetil(Vetor::Vetor2F pos, Vetor::Vetor2F vel, Ids::Ids ID, const char* caminhoTextura) :
 			Colidivel(pos, vel, Ids::projetil, "../imagens/projetil.png")
 		{
-			
+
 		}
 
 
@@ -76,5 +75,4 @@ namespace InvasaoAlienigena {
 			}
 
 		}
-	}
 }

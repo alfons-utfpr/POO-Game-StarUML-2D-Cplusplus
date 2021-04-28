@@ -9,9 +9,9 @@ namespace InvasaoAlienigena {
         namespace Desenhaveis {
             Kahlo::Kahlo(Vetor::Vetor2F pos) : 
                 Jogador(pos, Vetor::Vetor2F(), Ids::kahlo, "../imagens/Kahlo.png") {
-                vel_x = 80;
-                vel_y = 80;
-                alt_pulo = 80;
+                vel_x = 100;
+                vel_y = 100;
+                alt_pulo = 110;
                 vidas = 3;
                 //codigoRetorno = CodigoRetorno::comecarSegundaFase;
             }
@@ -36,15 +36,11 @@ namespace InvasaoAlienigena {
 
                 chaveOuvinte = ge.adicionarOuvinteTeclado([this](const sf::Event& e) {tratarEvento(e); });
                 gc.adicionarColidivel(this);
-
-                proj.inicializarDesenhaveis(gf, ge, gc);
-
-
             }
 
-            void Kahlo::atualizar(float t) {
+          /*  void Kahlo::atualizar(float t) {
                 //Gravidade
-                /*
+                
                 vel_y += 1.0 * gravidade;
                 
                 if (std::abs(v.y) > velmax_y) 
@@ -53,10 +49,10 @@ namespace InvasaoAlienigena {
                 }
                 
                     //v.y = sqrtf(2 * gravidade * alt_pulo);
-                */
+                
                 posicao += v * t;
-            }
-
+            }*/
+        
             void Kahlo::desenhar(Gerenciador::GerenciadorGrafico& g) {
 
                 g.desenhar(caminho, posicao);
@@ -64,11 +60,10 @@ namespace InvasaoAlienigena {
             }
 
             void Kahlo::inicializarComJSON(nlohmann::json fonte) {
+
                 posicao = { fonte["posicao"] };
+                v = { fonte["velocidade"] };
                 nlohmann::json json;
-
-                json["amigos"] = proj.paraJSON();
-
             }
 
             void Kahlo::tratarEvento(const sf::Event& f) {
@@ -89,10 +84,6 @@ namespace InvasaoAlienigena {
                         v.y += vel_y;
                         break;
 
-                    case sf::Keyboard::Key::J:
-                        std::cout << "J" << std::endl;
-                        proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
-                        break;
                     default:
                         break;
                     }
@@ -110,9 +101,6 @@ namespace InvasaoAlienigena {
                             break;
                         case sf::Keyboard::Key::Down:
                             v.y -= vel_y;
-                            break;
-                        case sf::Keyboard::Key::J:
-                            proj.inserir(new Projetil::Projetil(Vetor::Vetor2F(80.0f, 120.0f), Vetor::Vetor2F(15, 0)));
                             break;
                         default:
                             break;

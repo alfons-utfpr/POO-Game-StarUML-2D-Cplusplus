@@ -18,17 +18,14 @@ namespace InvasaoAlienigena {
                 float vely;
                 int vidas;
                 unsigned int chaveOuvinte;
-                //const float gravitySpeed = 0.3;
-                bool isJumping = false;
                 Vetor::Vetor2F ajustes;
-               // Fase::Fase* faseAtual;
-
+               
             public:
                 Frida(Vetor::Vetor2F pos = { 0.0f , 0.0f });
                 ~Frida();
                 
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
-                void atualizar(float t);
+                //void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
                 void tratarEvento(const sf::Event& e);
                 //void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);

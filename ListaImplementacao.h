@@ -133,6 +133,12 @@ namespace InvasaoAlienigena {
         }
 
         template <typename TF>
+        bool Lista<TF>::estaVazia()
+        {
+            return (inicio == NULL);
+        }
+
+        template <typename TF>
         TF Lista<TF>::voltarInicio() {
             atual = inicio;
 
@@ -148,6 +154,12 @@ namespace InvasaoAlienigena {
 
             return (atual) ? atual->getInfo() : nullptr;
 
+        }
+
+        template <typename TF>
+        TF Lista<TF>::getInicio()
+        {
+            return inicio->getInfo();
         }
 
         template <typename TF>
@@ -211,7 +223,7 @@ namespace InvasaoAlienigena {
                 return false;
 
             TF buffer;
-            // lê um por um dos elementos e insere na lista;
+            // lï¿½ um por um dos elementos e insere na lista;
             while (!entrada.eof())
             {
                 entrada.read(reinterpret_cast<char*>(&buffer), sizeof(TF));

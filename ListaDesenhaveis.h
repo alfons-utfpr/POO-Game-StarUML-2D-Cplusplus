@@ -25,8 +25,10 @@ namespace InvasaoAlienigena {
             void inserir(Desenhavel* info);
             void removerPrimeiro(Desenhavel* p);
 
-            Desenhavel* voltarInicio(); //retorna para o início e retorna o primeiro elemento da lista
-            Desenhavel* irProximo(); //vai para o próximo elemento da lista e retorna o próximo
+            Desenhavel* voltarInicio(); //retorna para o inï¿½cio e retorna o primeiro elemento da lista
+            Desenhavel* irProximo(); //vai para o prï¿½ximo elemento da lista e retorna o prï¿½ximo
+            Desenhavel* getInicio();
+            bool estaVazia();
 
             void inicializarDesenhaveis(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
             void atualizarDesenhaveis(float t);

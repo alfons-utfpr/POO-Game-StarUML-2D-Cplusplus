@@ -8,8 +8,8 @@ namespace InvasaoAlienigena {
         namespace Desenhaveis {
             Frida::Frida(Vetor::Vetor2F pos) : 
                 Jogador(pos, Vetor::Vetor2F(), Ids::frida, "../imagens/Frida.png") {
-                velx = 80;
-                vely = 80;
+                velx = 100;
+                vely = 100;
                 vidas = 3;
             }
 
@@ -28,9 +28,9 @@ namespace InvasaoAlienigena {
 
             }
 
-            void Frida::atualizar(float t) {
+         /*   void Frida::atualizar(float t) {
                 posicao += v * t;
-            }
+            }*/
 
             void Frida::desenhar(Gerenciador::GerenciadorGrafico& g) {
 
@@ -56,7 +56,6 @@ namespace InvasaoAlienigena {
                         break;
                     case sf::Keyboard::Key::W:
                         v.y -= vely;
-                        isJumping = true;
                         break;
                     case sf::Keyboard::Key::S:
                         v.y += vely;
@@ -133,10 +132,7 @@ namespace InvasaoAlienigena {
                 ajustes = Vetor::Vetor2F(0, 0);
                 posicao += ajustes;
 
-
                 if (ajustes.y < 0) {
-                    isJumping = false;
-
                     v.y = 0;
                 }
                 else if (ajustes.y > 0) {

@@ -26,7 +26,6 @@ namespace InvasaoAlienigena {
                 unsigned int chaveOuvinte;
                 //const float gravitySpeed = 0.3;
                 Vetor::Vetor2F ajustes;
-                Lista::ListaDesenhaveis proj;
 
                 //int codigoRetorno;
 
@@ -38,7 +37,7 @@ namespace InvasaoAlienigena {
                 ~Kahlo();
                 //nlohmann::json paraJSON() override;
                 void inicializar(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc);
-                void atualizar(float t);
+                //void atualizar(float t);
                 void desenhar(Gerenciador::GerenciadorGrafico& g);
                 void tratarEvento(const sf::Event& f);
                 //void colidir(Ids::Ids idOutro, Vetor::Vetor2F posicaoOutro, Vetor::Vetor2F dimensoesOutro);

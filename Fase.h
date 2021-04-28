@@ -27,11 +27,9 @@ namespace InvasaoAlienigena {
             Lista::ListaDesenhaveis listaAmigos;
             bool continuarFase;
             
-
-
         public:
             Fase(Gerenciador::GerenciadorGrafico& gg, Gerenciador::GerenciadorTiles* gt, Entidades::Desenhaveis::Kahlo* jogador1 = nullptr, Entidades::Desenhaveis::Frida* jogador2 = nullptr);
-            //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
+            //Construtor sem parï¿½metros nï¿½o ï¿½ necessï¿½rio pois ele nï¿½o existe em classes com atributos que sï¿½o referï¿½ncias
             ~Fase();
             int executar() override;
             virtual void inicializar() = 0;

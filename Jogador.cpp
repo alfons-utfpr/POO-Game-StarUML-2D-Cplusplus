@@ -8,7 +8,7 @@ namespace InvasaoAlienigena {
         namespace Desenhaveis {
             Jogador::Jogador(Vetor::Vetor2F pos, Vetor::Vetor2F vel, Ids::Ids ID, const char* caminhoTextura) :
                 Colidivel(pos, vel, ID, caminhoTextura) {
-                    gravidade=981;
+                    gravidade = 981;
             }
 
             Jogador::~Jogador() {
@@ -26,9 +26,9 @@ namespace InvasaoAlienigena {
 
             }
 
-            /*void Jogador::atualizar(float t) {
+            void Jogador::atualizar(float t) {
                 posicao += v * t;
-            }*/
+            }
 
             void Jogador::desenhar(Gerenciador::GerenciadorGrafico& g) {
 

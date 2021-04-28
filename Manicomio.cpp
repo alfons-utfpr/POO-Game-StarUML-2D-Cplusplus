@@ -76,8 +76,6 @@ namespace InvasaoAlienigena {
                 case Ids::lagartoVerde:
                     listaAmigos.inserir(new Desenhaveis::LagartoVerde(amigo));
                     break;
-                case Ids::projetil:
-                    listaAmigos.inserir(new Projetil::Projetil(amigo));
                 default:
                     break;
                 }

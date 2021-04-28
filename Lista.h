@@ -45,9 +45,12 @@ namespace InvasaoAlienigena {
 
             void inserir(TF info);
             void esvaziar();
+            //retorna true caso esteja vazia e false caso contrÃ¡rio
+            bool estaVazia();
 
-            TF voltarInicio(); //retorna para o início e retorna o primeiro elemento da lista
-            TF irProximo(); //vai para o próximo elemento da lista e retorna o próximo
+            TF voltarInicio(); //retorna para o inï¿½cio e retorna o primeiro elemento da lista
+            TF irProximo(); //vai para o prï¿½ximo elemento da lista e retorna o prï¿½ximo
+            TF getInicio();//retorna o elemento inicial na forma de ponteiro
             void removerPrimeiro(TF elemento);
 
             bool gravarEmArquivo(char const* const arquivo);

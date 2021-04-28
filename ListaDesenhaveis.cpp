@@ -19,6 +19,16 @@ namespace InvasaoAlienigena {
             lista.removerPrimeiro(p);
         }
 
+        Desenhavel* ListaDesenhaveis::getInicio()
+        {
+            return this->lista.getInicio();
+        }
+
+        bool ListaDesenhaveis::estaVazia()
+        {
+            return this->lista.estaVazia();
+        }
+
         void ListaDesenhaveis::inicializarDesenhaveis(Gerenciador::GerenciadorGrafico& gf, Gerenciador::GerenciadorEventos& ge, Gerenciador::GerenciadorColisoes& gc) {
 
             Desenhavel* p = lista.voltarInicio();
